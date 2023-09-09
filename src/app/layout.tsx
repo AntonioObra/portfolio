@@ -1,10 +1,10 @@
-import "@/styles/globals.css";
+import { cn } from "@/lib/utils";
+import "../styles/globals.css";
+import type { Metadata } from "next";
 
 import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
-import { cn } from "@/lib/utils";
-
-import { Analytics } from "@/components/Analytics";
+import Navbar from "@/components/Navbar";
 
 // * Fonts
 const fontSans = FontSans({
@@ -18,59 +18,9 @@ const fontHeading = localFont({
   variable: "--font-heading",
 });
 
-// * Metadata
-export const metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "CodeRepo",
-    "Karlo Jurković",
-    "Antonio Obradović",
-    "coderepo",
-    "web development",
-  ],
-  authors: [
-    {
-      name: "Karlo Jurković",
-      url: "https://coderepo.vercel.app",
-    },
-    {
-      name: "Antonio Obradović",
-      url: "https://blog.obradovic.dev",
-    },
-  ],
-  creator: "Karlo Jurković & Antonio Obradović",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [`${siteConfig.url}/og.png`],
-    creator: "@antonioobra8",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+export const metadata: Metadata = {
+  title: "obradovic.dev portfolio",
+  description: "Antonio Obradović's portfolio",
 };
 
 export default function RootLayout({
@@ -80,7 +30,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head suppressHydrationWarning />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -88,11 +37,10 @@ export default function RootLayout({
           fontHeading.variable
         )}
       >
-        {/* // * ThemeProvider used for no flashing white screen on dark mode */}
-        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
+        {/* <header>
+          <Navbar />
+        </header> */}
         {children}
-        <Analytics />
-        {/* </ThemeProvider> */}
       </body>
     </html>
   );
