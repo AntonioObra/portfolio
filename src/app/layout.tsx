@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 // * Fonts
 const fontSans = FontSans({
@@ -37,10 +38,12 @@ export default function RootLayout({
           fontHeading.variable
         )}
       >
-        {/* <header>
-          <Navbar />
-        </header> */}
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          <header>
+            <Navbar />
+          </header>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
