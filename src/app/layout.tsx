@@ -6,6 +6,7 @@ import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import Stars from "@/components/Stars";
 
 // * Fonts
 const fontSans = FontSans({
@@ -39,6 +40,8 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
+          <Stars />
+
           <header>
             <Navbar />
           </header>

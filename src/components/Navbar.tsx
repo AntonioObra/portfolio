@@ -83,7 +83,7 @@ const Navbar = () => {
             target="_blank"
             rel="noreferrer"
             className={cn(
-              buttonVariants({ variant: "secondary", size: "sm" }),
+              buttonVariants({ variant: "default", size: "sm" }),
               "flex items-center gap-2 text-md"
             )}
           >
