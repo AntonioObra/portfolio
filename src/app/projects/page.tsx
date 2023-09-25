@@ -16,7 +16,7 @@ export default function Projects() {
         text=" If you have any questions, inquiries, or would like to discuss a potential project or collaboration, please feel free to get in touch with me. I'm always excited to connect with fellow professionals and enthusiasts in the industry."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3  gap-4 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-12 mt-10">
         {projects.map((project, index) => (
           <ProjectCard key={project.name + index} project={project} />
         ))}

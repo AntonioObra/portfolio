@@ -20,8 +20,8 @@ export default function HeroShader() {
       pixelRatio={[1, 1.5]}
       camera={{ position: [0, 3, 100], fov: 15 }}
     >
-      <color attach="background" args={["black"]} />
-      <fog attach="fog" args={["black", 15, 20]} />
+      <color attach="background" args={["white"]} />
+      <fog attach="fog" args={["white", 15, 20]} />
       <Suspense fallback={null}>
         <group position={[0, -1, 0]}>
           <VideoText position={[0, 1, -2]} />

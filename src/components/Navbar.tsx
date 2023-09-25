@@ -13,17 +13,17 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-background/95 py-3 px-5 border-b border-white/10 backdrop-blur-[30px] saturate-[120%]">
+    <nav className="fixed top-0 z-50 w-full bg-background/95 py-3 px-5 border-b border-foreground backdrop-blur-[30px] saturate-[120%]">
       <div className="container flex items-center justify-between text-md">
         <div className="flex items-center gap-5 ">
-          <Link href="/" className="font-bold text-white">
+          <Link href="/" className="font-bold text-foreground">
             obradovic.dev
           </Link>
           <Link
             href="/projects"
             className={twMerge(
-              "text-white/70 hover:text-white duration-300",
-              pathname === "/projects" && "text-white"
+              "text-foreground hover:text-foreground duration-300",
+              pathname === "/projects" && "font-bold"
             )}
           >
             projects
@@ -31,8 +31,8 @@ const Navbar = () => {
           <Link
             href="/contact"
             className={twMerge(
-              "text-white/70 hover:text-white duration-300",
-              pathname === "/contact" && "text-white"
+              "text-foreground hover:text-foreground duration-300",
+              pathname === "/contact" && "font-bold"
             )}
           >
             contact

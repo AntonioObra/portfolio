@@ -4,6 +4,7 @@ import React from "react";
 import { buttonVariants } from "./ui/button";
 import Image from "next/image";
 import { Project } from "@/types";
+import { Icons } from "./Icons";
 
 type Props = {
   project: Project;
@@ -11,72 +12,36 @@ type Props = {
 
 const ProjectCard = ({ project }: Props) => {
   return (
-    <div className="border border-secondary p-8 rounded-lg flex flex-col justify-between gap-8 relative group overflow-hidden hover:border-primary transition-border duration-500 bg-background">
-      <div className="overflow-hidden rounded-lg">
-        <Link href={`/projects/${project.slug}`}>
-          <Image
-            src={`/images/projects/${project.image}`}
-            width={500}
-            height={300}
-            alt={project.name}
-            className="rounded-lg max-h-[300px] object-cover h-auto group-hover:scale-110 duration-500 transition-scale"
-          />
-        </Link>
+    <Link
+      href={`/projects/${project.slug}`}
+      className="flex flex-col justify-between gap-6 group"
+    >
+      <div className="relative overflow-hidden rounded-lg h-[570px]">
+        <Image
+          src={`/images/projects/${project.image}`}
+          width={500}
+          height={300}
+          alt={project.name}
+          className="rounded-lg w-full h-full max-h-[570px] object-cover group-hover:scale-110  transition-all duration-300 ease-in-out"
+        />
+        <button className="absolute bottom-8 right-8 rounded-full p-2 bg-background">
+          <Icons.design />
+        </button>
       </div>
-      <hgroup className="flex flex-col ">
-        <h3 className="text-2xl font-bold">{project.name}</h3>
-        <p className="text-base text-gray-500 line-clamp-3">
-          {project.description}
-        </p>
-      </hgroup>
 
-      <Link
-        className={cn(
-          buttonVariants({ variant: "default", size: "lg" }),
-          "flex items-center gap-2 text-md "
-        )}
-        href={`/projects/${project.slug}`}
-      >
-        View Project
-      </Link>
-    </div>
+      <div className="flex justify-between w-full items-center">
+        <h3 className="text-2xl font-bold uppercase">{project.name}</h3>
+        <button
+          className={cn(
+            buttonVariants({ variant: "default", size: "lg" }),
+            "flex items-center gap-2 text-md "
+          )}
+        >
+          View Project
+        </button>
+      </div>
+    </Link>
   );
 };
-
-// ! Code below is the same as above, but with a img hover animation
-// const ProjectCard = ({ project }: Props) => {
-//   return (
-//     <div className="border border-secondary p-8 rounded-lg flex flex-col justify-between gap-8 relative group overflow-hidden h-[500px] hover:border-primary transition-border duration-700 ">
-//       <div className="absolute inset-0 duration-700 group-hover:inset-8 group-hover:bottom-60 transition-all z-10 overflow-hidden rounded-lg ">
-//         <div className="bg-secondary/40 w-full h-full absolute inset-0"></div>
-//         <Image
-//           src={`/images/projects/${project.image}`}
-//           width={500}
-//           height={300}
-//           alt={project.name}
-//           className="rounded-lg transition-all duration-700 h-full object-cover "
-//         />
-//       </div>
-//       <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col gap-8">
-//         <hgroup className="flex flex-col ">
-//           <h3 className="text-2xl font-bold">{project.name}</h3>
-//           <p className="text-base text-gray-500 line-clamp-3">
-//             {project.description}
-//           </p>
-//         </hgroup>
-
-//         <Link
-//           className={cn(
-//             buttonVariants({ variant: "default", size: "lg" }),
-//             "flex items-center gap-2 text-md "
-//           )}
-//           href={`/projects/${project.slug}`}
-//         >
-//           View Project
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// };
 
 export default ProjectCard;

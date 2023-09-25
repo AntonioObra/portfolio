@@ -1,6 +1,7 @@
 import { Icons } from "@/components/Icons";
 import { DocsPageHeader } from "@/components/PageHeader";
 import Stars from "@/components/Stars";
+import TestComponent from "@/components/TestComponent";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -14,10 +15,10 @@ export default function ContactPage() {
       />
 
       <div className="flex justify-between gap-5 mt-10 flex-col md:flex-row flex-wrap">
-        <div className="flex-1 flex flex-col justify-between border border-secondary rounded-lg p-8 bg-background">
+        <div className=" flex-1 flex flex-col justify-between border border-foreground rounded-lg p-8 bg-background">
           <div>
             <h3 className="text-2xl font-bold mb-4">Email</h3>
-            <p className="text-lg text-white/70">
+            <p className="text-lg text-foreground">
               If you prefer direct communication, you can contact me through
               e-mail. I will do my best to respond to your inquiries promptly.
             </p>
@@ -38,10 +39,10 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col justify-between  border border-secondary rounded-lg p-8 bg-background">
+        <div className="flex-1 flex flex-col justify-between  border border-foreground rounded-lg p-8 bg-background">
           <div>
             <h3 className="text-2xl font-bold mb-4">Socials</h3>
-            <p className="text-lg text-white/70">
+            <p className="text-lg text-foreground">
               You can also find me on various social media platforms and
               professional networks. Feel free to follow, connect, or message me
               through these channels:
@@ -87,6 +88,8 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      {/* <TestComponent /> */}
     </main>
   );
 }

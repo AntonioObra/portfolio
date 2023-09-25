@@ -1,3 +1,4 @@
+import { HeroIntro } from "@/components/HeroIntro";
 import HeroShader from "@/components/HeroShader";
 
 export default function Home() {
@@ -5,7 +6,8 @@ export default function Home() {
     <main className="min-h-screen">
       <section className="h-screen w-screen max-h-full max-w-full relative">
         {/* @ts-ignore */}
-        <HeroShader className="fullscreen" />
+        {/* <HeroShader className="fullscreen" /> */}
+        <HeroIntro />
       </section>
     </main>
   );

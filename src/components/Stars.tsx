@@ -9,11 +9,11 @@ import * as random from "maath/random/dist/maath-random.esm";
 function Experience(props) {
   const ref = useRef();
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(400), { radius: 1.5 })
+    random.inSphere(new Float32Array(2000), { radius: 1.5 })
   );
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 40;
-    ref.current.rotation.y -= delta / 45;
+    ref.current.rotation.x -= delta / 30;
+    ref.current.rotation.y -= delta / 35;
   });
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
@@ -26,7 +26,7 @@ function Experience(props) {
       >
         <PointMaterial
           transparent
-          color="red"
+          color="green"
           size={0.005}
           sizeAttenuation={true}
           depthWrite={false}
