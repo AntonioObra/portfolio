@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-8 left-0 right-0 z-50 container">
-      <nav className="p-4 border rounded-lg flex justify-between backdrop-blur-xl bg-background/95 ">
+      <nav className="p-4 border rounded-lg flex justify-between backdrop-blur-2xl bg-background/95">
         {/* Links */}
         <div className="flex gap-4">
           {Links.map(({ icon: Icon, ...link }) => (

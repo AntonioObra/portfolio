@@ -85,7 +85,7 @@ export default function SingleProjectPage({
         <h1 className="text-3xl">Other Projects</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
-          {otherProjects.map((project) => (
+          {otherProjects.slice(0, 2).map((project) => (
             <ProjectCard
               key={project.name}
               name={project.name}

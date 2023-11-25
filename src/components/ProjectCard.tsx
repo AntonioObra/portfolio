@@ -13,7 +13,7 @@ const ProjectCard = ({ image, name, tag, path }: Project) => {
   return (
     <article className="group">
       <Link href={`/projects/${path}`}>
-        <div className="overflow-hidden rounded-xl">
+        <div className="overflow-hidden rounded-xl group-hover:shadow-xl group-hover:shadow-primary/10 transition-all duration-300">
           <Image
             src={`/images/projects/${image}?v=2`}
             alt={name}

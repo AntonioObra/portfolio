@@ -48,7 +48,7 @@ export default function Home() {
           <h1 className="text-3xl">Recent Projects</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
-            {Projects.map((project) => (
+            {Projects.slice(0, 2).map((project) => (
               <ProjectCard
                 key={project.name}
                 name={project.name}
@@ -74,7 +74,7 @@ export default function Home() {
         <section className="container mt-16">
           <h1 className="text-3xl mb-8">Stack</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {Stacks.map(({ icon: Icon, ...stack }) => (
+            {Stacks.slice(0, 3).map(({ icon: Icon, ...stack }) => (
               <div
                 key={stack.name}
                 className="py-6 px-8 bg-secondary flex items-center gap-4 rounded-xl group"

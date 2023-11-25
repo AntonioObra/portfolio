@@ -5,4 +5,5 @@ export type Stack = {
   icon: Icon;
   description: string;
   shortDescription: string;
+  tag: "Frontend" | "Backend" | "Database" | "DevOps" | "Other";
 };
