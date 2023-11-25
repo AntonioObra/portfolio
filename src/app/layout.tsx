@@ -3,6 +3,8 @@ import { Inter, Noto_Sans } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,9 +25,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(notoSans.className, "dark")}>
+      <body
+        className={cn(
+          notoSans.className,
+          "min-h-screen bg-background dark antialiased"
+        )}
+      >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

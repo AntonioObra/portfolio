@@ -19,4 +19,13 @@ export const Projects: Project[] = [
     image: "blog.png",
     path: "blog",
   },
+  {
+    name: "Portfolio",
+    description: "My personal portfolio.",
+    github: "https://github.com/AntonioObra/portfolio",
+    url: "https://obradovic.dev/",
+    tag: "Web Development",
+    image: "portfolio.png",
+    path: "portfolio",
+  },
 ];

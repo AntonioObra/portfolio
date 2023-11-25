@@ -41,6 +41,13 @@ const Navbar = () => {
               <Icon className=" h-4 w-4" />
             </Link>
           ))}
+          <Link
+            href="https://blog.obradovic.dev"
+            className={buttonVariants({ variant: "default" })}
+            target="_blank"
+          >
+            blog
+          </Link>
         </div>
       </nav>
     </header>

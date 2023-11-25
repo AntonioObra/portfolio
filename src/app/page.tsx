@@ -1,46 +1,101 @@
-"use client";
-
 import Link from "next/link";
 
+import { Stacks } from "@/config/stack";
 import { Projects } from "@/config/projects";
 
+import { Icons } from "@/components/Icons";
 import ProjectCard from "@/components/ProjectCard";
 import { buttonVariants } from "@/components/ui/button";
-import HeroSection from "@/components/HeroSection";
-import { Canvas } from "@react-three/fiber";
-import { Icons } from "@/components/Icons";
-import { Stacks } from "@/config/stack";
+
+import ViewAll from "@/components/ViewAll";
+import Experience from "@/components/Experience";
 
 export default function Home() {
   return (
     <>
       {/* Shader Hero  */}
-      <section className="-mt-20 h-[100vh] w-[100vw] relative">
-        <Canvas>
-          <HeroSection />
-        </Canvas>
-
-        <div className="absolute inset-0"></div>
-      </section>
+      <Experience />
 
       <main className="py-6 lg:py-32">
         {/* About */}
         <section className="container mb-16">
-          <h1 className="text-5xl mb-2">obradovic.dev</h1>
-          <p>
-            A passionate web designer with a knack for turning ideas into
-            visually stunning, user-friendly websites.
-          </p>
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="w-full lg:w-1/2  p-8 rounded-lg border border-primary  hover:shadow-2xl hover:shadow-primary/10 transition-shadow duration-300">
+              <h1 className="text-3xl font-bold">About Me</h1>
+              <p className="text-lg mt-8 text-muted-foreground">
+                I am a full-stack developer with a passion for creating
+                beautiful and functional user experiences. I am a self-taught
+                developer and I have been coding for over 5 years. I have
+                experience working with React, NextJS, NodeJS, Express, MongoDB,
+                and more.
+              </p>
+              <p className="text-lg mt-8 text-muted-foreground">
+                I am currently looking for a full-time position as a full-stack
+                developer. If you would like to work with me, please contact me
+                at{" "}
+                <Link
+                  href="mailto:antonio@obradovic.dev"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  antonio@obradovic.dev
+                </Link>
+              </p>
+            </div>
 
-          <div className="flex items-center gap-4 mt-12 group">
-            <div className="bg-secondary w-full h-[1px]  group-hover:bg-primary transition-all duration-300"></div>
-            <Link
-              href="/about"
-              className={buttonVariants({ variant: "default" })}
-            >
-              More about Me <Icons.arrowRight className="ml-4 h-4 w-4" />
-            </Link>
+            <div className="w-full lg:w-1/2 flex flex-col gap-8">
+              <div className=" p-8 rounded-lg border border-secondary  hover:shadow-2xl hover:shadow-secondary/50 transition-shadow duration-300">
+                <p className="text-lg text-muted-foreground">
+                  Currently working as a Junior Front-End Developer at{" "}
+                  <Link
+                    href="https://papar.hr"
+                    target="_blank"
+                    className="text-primary underline-offset-4 hover:underline"
+                  >
+                    papar.hr
+                  </Link>
+                </p>
+              </div>
+
+              <div className="h-full p-8 rounded-lg border border-accent bg-secondary flex flex-col justify-between hover:shadow-2xl hover:shadow-secondary/50 transition-shadow duration-300">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Socials</h3>
+                  <p className="text-lg text-white/70">
+                    You can also find me on various social media platforms and
+                    professional networks. Feel free to follow, connect, or
+                    message me through these channels:
+                  </p>
+                </div>
+
+                <div className="mt-8 flex items-center justify-start gap-4">
+                  <Link
+                    href="https://github.com/AntonioObra"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={buttonVariants({
+                      variant: "default",
+                      size: "lg",
+                    })}
+                  >
+                    <Icons.github className="h-5 w-5" />
+                  </Link>
+
+                  <Link
+                    href="https://www.linkedin.com/in/antonio-obradovi%C4%87-708362193/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={buttonVariants({
+                      variant: "default",
+                      size: "lg",
+                    })}
+                  >
+                    <Icons.linkedin className="h-5 w-5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <ViewAll text="About Me" url="/about" />
         </section>
 
         {/* Projects */}
@@ -59,15 +114,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="flex items-center gap-4 mt-12">
-            <div className="bg-secondary w-full h-[1px] "></div>
-            <Link
-              href="/projects"
-              className={buttonVariants({ variant: "outline" })}
-            >
-              View all projects
-            </Link>
-          </div>
+          <ViewAll text="View all projects" url="/projects" />
         </section>
 
         {/* Stack */}
@@ -90,16 +137,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="flex items-center gap-4 mt-12">
-            <div className="bg-secondary w-full h-[1px] "></div>
-            <Link
-              href="/stack"
-              className={buttonVariants({ variant: "outline" })}
-            >
-              View Full Stack
-              <Icons.arrowRight className="ml-4 h-4 w-4" />
-            </Link>
-          </div>
+          <ViewAll text="View My Tech Stack" url="/stack" />
         </section>
       </main>
     </>

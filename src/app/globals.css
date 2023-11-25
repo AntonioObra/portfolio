@@ -57,3 +57,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.outline-title {
+  -webkit-text-stroke: 4px #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

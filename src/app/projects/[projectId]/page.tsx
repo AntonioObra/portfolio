@@ -46,7 +46,7 @@ export default function SingleProjectPage({
 
         <h1 className="text-5xl">{project?.name}</h1>
 
-        <div className="overflow-hidden rounded-xl my-16 shadow-2xl shadow-primary">
+        <div className="overflow-hidden rounded-xl my-16 shadow-2xl shadow-primary border-2 border-primary">
           <Image
             src={`/images/projects/${project.image}`}
             alt={project.name}
