@@ -12,6 +12,8 @@ import {
   ExternalLink,
   LucideProps,
   Code2,
+  Menu,
+  X,
 } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
@@ -27,6 +29,8 @@ export const Icons = {
   arrowLeft: MoveLeft,
   externalLink: ExternalLink,
   code: Code2,
+  menu: Menu,
+  close: X,
   react: ({ className, ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

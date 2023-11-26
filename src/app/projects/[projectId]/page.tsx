@@ -24,7 +24,7 @@ export default function SingleProjectPage({
   const otherProjects = Projects.filter((p) => p.path !== projectId);
 
   return (
-    <main className="py-6 lg:py-32">
+    <main className="py-16 md:py-24 lg:py-32">
       <section className="container mb-20">
         <div className="flex items-center gap-4 mb-12">
           <Link

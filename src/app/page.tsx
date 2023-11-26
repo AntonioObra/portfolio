@@ -18,7 +18,7 @@ export default function Home() {
       {/* Shader Hero  */}
       <Experience />
 
-      <main className="py-6 lg:py-32">
+      <main className="py-16 md:py-24 lg:py-32">
         {/* About */}
         <section className="container mb-20">
           <div className="flex flex-col lg:flex-row gap-8">
@@ -136,7 +136,7 @@ export default function Home() {
         {/* Stack */}
         <section className="container">
           <h1 className="text-3xl mb-8">Stack</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Stacks.slice(0, 3).map(({ icon: Icon, ...stack }, index) => (
               <MotionDiv
                 variants={variantsBottom}

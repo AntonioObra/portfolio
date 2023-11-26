@@ -6,13 +6,13 @@ import { MotionDiv } from "@/components/MotionDiv";
 
 export default function Stack() {
   return (
-    <main className="container py-6 lg:py-32">
+    <main className="container py-16 md:py-24 lg:py-32">
       <DocsPageHeader
         heading="My Tech Stack"
         text=" If you have any questions, inquiries, or would like to discuss a potential project or collaboration, please feel free to get in touch with me. I'm always excited to connect with fellow professionals and enthusiasts in the industry."
       />
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {Stacks.map(({ icon: Icon, ...stack }, index) => (
           <MotionDiv
             variants={variantsBottom}

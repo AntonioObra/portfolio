@@ -10,7 +10,7 @@ import { variantsLeft, variantsRight } from "@/lib/motion";
 
 export default function ContactPage() {
   return (
-    <main className="container py-6 lg:py-32">
+    <main className="container py-16 md:py-24 lg:py-32">
       <DocsPageHeader
         heading="Contact me"
         text=" If you have any questions, inquiries, or would like to discuss a potential project or collaboration, please feel free to get in touch with me. I'm always excited to connect with fellow professionals and enthusiasts in the industry."
