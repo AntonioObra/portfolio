@@ -4,9 +4,9 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="container my-16">
-      <div className="p-20 rounded-xl text-black border-2 border-secondary shadow-2xl shadow-secondary">
-        <h5 className="text-8xl font-semibold leading-snug min-w-full p-2  text-center text-transparent  bg-clip-text bg-gradient-to-b from-secondary via-green-200 to-primary">
+    <footer className="container mb-8 md:mb-16">
+      <div className="p-6 md:p-20 rounded-xl text-black border-2 border-secondary shadow-2xl shadow-secondary hover:shadow-primary transition-all duration-300 hover:border-primary ">
+        <h5 className="text-3xl lg:text-8xl font-semibold lg:leading-snug min-w-full p-2  text-center text-transparent  bg-clip-text bg-gradient-to-b from-secondary via-green-200 to-primary">
           Created by<br></br>Antonio Obradović
         </h5>
 

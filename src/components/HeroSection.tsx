@@ -33,7 +33,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <color args={["#030202"]} attach="background" />
+      <color args={["#050505"]} attach="background" />
 
       {/* // * Portal */}
       <mesh scale={[viewport.width, viewport.height, 1]}>

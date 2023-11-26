@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 
 import { Projects } from "@/config/projects";
 
+import ViewAll from "@/components/ViewAll";
 import { Icons } from "@/components/Icons";
-import { buttonVariants } from "@/components/ui/button";
 import ProjectCard from "@/components/ProjectCard";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function SingleProjectPage({
   params,
@@ -24,7 +25,7 @@ export default function SingleProjectPage({
 
   return (
     <main className="py-6 lg:py-32">
-      <section className="container">
+      <section className="container mb-20">
         <div className="flex items-center gap-4 mb-12">
           <Link
             href="/projects"
@@ -60,7 +61,7 @@ export default function SingleProjectPage({
           <p className="text-xl">{project.description}</p>
         </div>
 
-        <div className="flex items-center gap-4 mb-12">
+        <div className="flex items-center gap-4">
           <Link
             href="/projects"
             className={buttonVariants({ variant: "link" })}
@@ -81,7 +82,7 @@ export default function SingleProjectPage({
       </section>
 
       {/* Other Projects */}
-      <section className="container mb-16">
+      <section className="container">
         <h1 className="text-3xl">Other Projects</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
@@ -96,15 +97,7 @@ export default function SingleProjectPage({
           ))}
         </div>
 
-        <div className="flex items-center gap-4 mt-12">
-          <div className="bg-secondary w-full h-[1px] "></div>
-          <Link
-            href="/projects"
-            className={buttonVariants({ variant: "outline" })}
-          >
-            View all projects
-          </Link>
-        </div>
+        <ViewAll text="View All Projects" url="/projects" />
       </section>
     </main>
   );

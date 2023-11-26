@@ -10,17 +10,18 @@ type ViewAllProps = {
 
 const ViewAll = ({ text, url }: ViewAllProps) => {
   return (
-    <div className="flex items-center gap-4 mt-12 group">
-      <div className="bg-secondary w-full h-[1px]  group-hover:bg-primary transition-all duration-300"></div>
+    <div className="flex flex-row-reverse items-center gap-4 mt-12 ">
       <Link
         href={url}
         className={buttonVariants({
           variant: "outline",
-          className: "group-hover:text-primary duration-300 transition-colors",
+          className:
+            "hover:text-primary hover:bg-secondary duration-300 transition-all peer",
         })}
       >
         {text} <Icons.arrowRight className="ml-4 h-4 w-4" />
       </Link>
+      <div className="bg-secondary w-full h-[1px]  peer-hover:bg-primary transition-all duration-300"></div>
     </div>
   );
 };

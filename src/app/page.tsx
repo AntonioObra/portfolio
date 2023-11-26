@@ -9,6 +9,8 @@ import { buttonVariants } from "@/components/ui/button";
 
 import ViewAll from "@/components/ViewAll";
 import Experience from "@/components/Experience";
+import { MotionDiv } from "@/components/MotionDiv";
+import { variantsBottom, variantsLeft, variantsRight } from "@/lib/motion";
 
 export default function Home() {
   return (
@@ -18,9 +20,16 @@ export default function Home() {
 
       <main className="py-6 lg:py-32">
         {/* About */}
-        <section className="container mb-16">
+        <section className="container mb-20">
           <div className="flex flex-col lg:flex-row gap-8">
-            <div className="w-full lg:w-1/2  p-8 rounded-lg border border-primary  hover:shadow-2xl hover:shadow-primary/10 transition-shadow duration-300">
+            <MotionDiv
+              variants={variantsLeft}
+              initial="hidden"
+              transition={{ delay: 0.2, ease: "easeInOut", duration: 0.5 }}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              className="w-full lg:w-1/2  p-8 rounded-lg border-2 border-primary  hover:shadow-2xl hover:shadow-primary/10 transition-shadow duration-300"
+            >
               <h1 className="text-3xl font-bold">About Me</h1>
               <p className="text-lg mt-8 text-muted-foreground">
                 I am a full-stack developer with a passion for creating
@@ -40,10 +49,17 @@ export default function Home() {
                   antonio@obradovic.dev
                 </Link>
               </p>
-            </div>
+            </MotionDiv>
 
-            <div className="w-full lg:w-1/2 flex flex-col gap-8">
-              <div className=" p-8 rounded-lg border border-secondary  hover:shadow-2xl hover:shadow-secondary/50 transition-shadow duration-300">
+            <MotionDiv
+              variants={variantsRight}
+              initial="hidden"
+              transition={{ delay: 0.2, ease: "easeInOut", duration: 0.5 }}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              className="w-full lg:w-1/2 flex flex-col gap-8"
+            >
+              <div className=" p-8 rounded-lg border-2 border-secondary hover:shadow-2xl hover:shadow-secondary/50 transition-shadow duration-300">
                 <p className="text-lg text-muted-foreground">
                   Currently working as a Junior Front-End Developer at{" "}
                   <Link
@@ -56,7 +72,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="h-full p-8 rounded-lg border border-accent bg-secondary flex flex-col justify-between hover:shadow-2xl hover:shadow-secondary/50 transition-shadow duration-300">
+              <div className="h-full p-8 rounded-lg border-2 border-muted bg-secondary flex flex-col justify-between hover:shadow-2xl hover:shadow-secondary/50 transition-shadow duration-300">
                 <div>
                   <h3 className="text-2xl font-bold mb-4">Socials</h3>
                   <p className="text-lg text-white/70">
@@ -92,18 +108,18 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </MotionDiv>
           </div>
 
           <ViewAll text="About Me" url="/about" />
         </section>
 
         {/* Projects */}
-        <section className="container">
+        <section className="container mb-20">
           <h1 className="text-3xl">Recent Projects</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
-            {Projects.slice(0, 2).map((project) => (
+            {Projects.slice(0, 2).map((project, index) => (
               <ProjectCard
                 key={project.name}
                 name={project.name}
@@ -118,22 +134,32 @@ export default function Home() {
         </section>
 
         {/* Stack */}
-        <section className="container mt-16">
+        <section className="container">
           <h1 className="text-3xl mb-8">Stack</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {Stacks.slice(0, 3).map(({ icon: Icon, ...stack }) => (
-              <div
+            {Stacks.slice(0, 3).map(({ icon: Icon, ...stack }, index) => (
+              <MotionDiv
+                variants={variantsBottom}
+                initial="hidden"
+                transition={{
+                  delay: 0.2 * index,
+                  ease: "easeInOut",
+                  duration: 0.5,
+                }}
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.25 }}
                 key={stack.name}
-                className="py-6 px-8 bg-secondary flex items-center gap-4 rounded-xl group"
               >
-                <Icon className="h-10 w-10 group-hover:text-primary transition-colors duration-300" />
-                <hgroup>
-                  <h2 className="text-lg">{stack.name}</h2>
-                  <p className="text-sm text-muted-foreground">
-                    {stack.shortDescription}
-                  </p>
-                </hgroup>
-              </div>
+                <div className="py-6 px-8 bg-secondary flex items-center gap-4 rounded-xl group hover:shadow-xl hover:shadow-primary/10 border-2 border-muted  hover:border-primary transition-all duration-300 h-full">
+                  <Icon className="h-10 w-10 group-hover:text-primary transition-colors duration-300" />
+                  <hgroup>
+                    <h2 className="text-lg">{stack.name}</h2>
+                    <p className="text-sm text-muted-foreground">
+                      {stack.shortDescription}
+                    </p>
+                  </hgroup>
+                </div>
+              </MotionDiv>
             ))}
           </div>
 

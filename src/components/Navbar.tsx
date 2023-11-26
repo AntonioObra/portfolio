@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 
-import { Icons } from "@/components/Icons";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import { Links, SocialLinks } from "@/config/header";
 
@@ -12,7 +11,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-8 left-0 right-0 z-50 container">
-      <nav className="p-4 border rounded-lg flex justify-between backdrop-blur-2xl bg-background/95">
+      <nav className="p-4 border-2 rounded-lg flex justify-between backdrop-blur-2xl bg-black/60">
         {/* Links */}
         <div className="flex gap-4">
           {Links.map(({ icon: Icon, ...link }) => (
@@ -30,12 +29,12 @@ const Navbar = () => {
         </div>
 
         {/* Social Links */}
-        <div className="flex gap-2">
+        <div className="flex gap-4">
           {SocialLinks.map(({ icon: Icon, ...link }) => (
             <Link
               key={link.link}
               href={link.link}
-              className={buttonVariants({ variant: "ghost" })}
+              className={buttonVariants({ variant: "ghost", size: "icon" })}
               target="_blank"
             >
               <Icon className=" h-4 w-4" />

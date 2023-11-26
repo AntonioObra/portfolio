@@ -11,6 +11,7 @@ import {
   CircleUserRound,
   ExternalLink,
   LucideProps,
+  Code2,
 } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
@@ -25,6 +26,7 @@ export const Icons = {
   arrowRight: MoveRight,
   arrowLeft: MoveLeft,
   externalLink: ExternalLink,
+  code: Code2,
   react: ({ className, ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

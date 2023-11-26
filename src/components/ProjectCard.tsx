@@ -2,17 +2,27 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Icons } from "@/components/Icons";
+import { MotionDiv } from "@/components/MotionDiv";
+import { variantsBottom } from "@/lib/motion";
 
-type Project = {
+type ProjectCardProps = {
   image: string;
   name: string;
   tag: string;
   path: string;
+  index?: number;
 };
 
-const ProjectCard = ({ image, name, tag, path }: Project) => {
+const ProjectCard = ({ image, name, tag, path, index }: ProjectCardProps) => {
   return (
-    <article className="group">
+    <MotionDiv
+      variants={variantsBottom}
+      initial="hidden"
+      transition={{ delay: 0.2, ease: "easeInOut", duration: 0.5 }}
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      className="group"
+    >
       <Link href={`/projects/${path}`}>
         <div className="overflow-hidden rounded-xl group-hover:shadow-xl group-hover:shadow-primary/10 transition-all duration-300 border-2 group-hover:border-primary">
           <Image
@@ -35,7 +45,7 @@ const ProjectCard = ({ image, name, tag, path }: Project) => {
           </div>
         </div>
       </Link>
-    </article>
+    </MotionDiv>
   );
 };
 

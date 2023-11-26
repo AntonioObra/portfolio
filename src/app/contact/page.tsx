@@ -1,8 +1,12 @@
+import Link from "next/link";
+
 import { Icons } from "@/components/Icons";
 import { DocsPageHeader } from "@/components/PageHeader";
 import { buttonVariants } from "@/components/ui/button";
+
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { MotionDiv } from "@/components/MotionDiv";
+import { variantsLeft, variantsRight } from "@/lib/motion";
 
 export default function ContactPage() {
   return (
@@ -13,7 +17,14 @@ export default function ContactPage() {
       />
 
       <div className="flex justify-between gap-5 mt-10 flex-col md:flex-row flex-wrap">
-        <div className="flex-1 flex flex-col justify-between border border-secondary rounded-lg p-8 bg-background">
+        <MotionDiv
+          variants={variantsLeft}
+          initial="hidden"
+          transition={{ delay: 0.2, ease: "easeInOut", duration: 0.5 }}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          className="flex-1 flex flex-col justify-between  border-2 border-secondary rounded-lg p-8 bg-background hover:shadow-xl hover:shadow-secondary transition-shadow duration-300"
+        >
           <div>
             <h3 className="text-2xl font-bold mb-4">Email</h3>
             <p className="text-lg text-white/70">
@@ -36,9 +47,16 @@ export default function ContactPage() {
               antonio@obradovic.dev
             </Link>
           </div>
-        </div>
+        </MotionDiv>
 
-        <div className="flex-1 flex flex-col justify-between  border border-secondary rounded-lg p-8 bg-background">
+        <MotionDiv
+          variants={variantsRight}
+          initial="hidden"
+          transition={{ delay: 0.2, ease: "easeInOut", duration: 0.5 }}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          className="flex-1 flex flex-col justify-between  border-2 border-secondary rounded-lg p-8 bg-background hover:shadow-xl hover:shadow-secondary transition-shadow duration-300"
+        >
           <div>
             <h3 className="text-2xl font-bold mb-4">Socials</h3>
             <p className="text-lg text-white/70">
@@ -67,7 +85,7 @@ export default function ContactPage() {
               <Icons.linkedin className="h-5 w-5" />
             </Link>
           </div>
-        </div>
+        </MotionDiv>
       </div>
     </main>
   );
