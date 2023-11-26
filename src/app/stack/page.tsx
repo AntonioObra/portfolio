@@ -26,7 +26,7 @@ export default function Stack() {
             viewport={{ once: true, amount: 0.25 }}
             key={stack.name}
           >
-            <div className="flex flex-col py-6 px-8 bg-secondary rounded-xl group gap-8 hover:shadow-xl hover:shadow-primary/10 border-2 border-muted  hover:border-primary transition-all  duration-300">
+            <div className="h-full flex flex-col py-6 px-8 bg-secondary rounded-xl group gap-8 hover:shadow-xl hover:shadow-primary/10 border-2 border-muted  hover:border-primary transition-all  duration-300">
               <div className=" flex items-center gap-4 ">
                 <Icon className="h-10 w-10 group-hover:text-primary transition-colors duration-300" />
                 <hgroup>
