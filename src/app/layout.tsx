@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
+import { Analytics } from "@/components/Analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 const notoSans = Noto_Sans({
@@ -18,8 +20,53 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "obradovic.dev",
-  description: "Antonio Obradović - Web developer",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "obradovic",
+    "antonio obradovic",
+    "Antonio Obradović",
+    "portfolio",
+    "obradovic.dev",
+    "antonio obradovic portfolio",
+    "antonio obradovic website",
+    "Next.js",
+    "React",
+    "web development",
+    "web developer",
+  ],
+  authors: [
+    {
+      name: "Antonio Obradović",
+      url: "https://obradovic.dev",
+    },
+  ],
+  creator: "Antonio Obradović",
+  publisher: "Antonio Obradović",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@obradovicdotdev",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
 export default function RootLayout({
@@ -38,6 +85,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
