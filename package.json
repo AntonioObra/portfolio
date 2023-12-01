@@ -15,6 +15,7 @@
     "@vercel/analytics": "^1.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "contentlayer": "^0.3.4",
     "framer-motion": "^10.16.5",
     "glslify-loader": "^2.0.0",
     "lucide-react": "^0.293.0",
@@ -22,6 +23,9 @@
     "raw-loader": "^4.0.2",
     "react": "^18",
     "react-dom": "^18",
+    "rehype-pretty-code": "^0.11.0",
+    "remark-gfm": "^4.0.0",
+    "shiki": "^0.14.5",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"
   },

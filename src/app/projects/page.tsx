@@ -1,9 +1,13 @@
-import { Projects } from "@/config/projects";
+import { allProjects } from "contentlayer/generated";
 
 import ProjectCard from "@/components/ProjectCard";
 import { DocsPageHeader } from "@/components/PageHeader";
 
 export default function ProjectsPage() {
+  if (allProjects.length === 0) {
+    return null;
+  }
+
   return (
     <main className="container py-16 md:py-24 lg:py-32">
       <DocsPageHeader
@@ -12,13 +16,13 @@ export default function ProjectsPage() {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
-        {Projects.map((project) => (
+        {allProjects.map((project) => (
           <ProjectCard
-            key={project.name}
-            name={project.name}
+            key={project.title}
+            name={project.title}
             image={project.image}
             tag={project.tag}
-            path={project.path}
+            path={project.slugAsParams}
           />
         ))}
       </div>

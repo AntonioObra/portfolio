@@ -72,7 +72,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="h-full p-8 rounded-lg border-2 border-muted bg-secondary flex flex-col justify-between hover:shadow-2xl hover:shadow-secondary/50 transition-shadow duration-300">
+              <div className="h-full p-8 rounded-lg border-2 border-muted bg-secondary flex flex-col justify-between hover:shadow-2xl hover:shadow-secondary/50 transition-shadow  duration-300">
                 <div>
                   <h3 className="text-2xl font-bold mb-4">Socials</h3>
                   <p className="text-lg text-white/70">

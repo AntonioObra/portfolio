@@ -2,26 +2,38 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import { Projects } from "@/config/projects";
+import { allProjects } from "contentlayer/generated";
 
 import ViewAll from "@/components/ViewAll";
 import { Icons } from "@/components/Icons";
 import ProjectCard from "@/components/ProjectCard";
 import { buttonVariants } from "@/components/ui/button";
 
-export default function SingleProjectPage({
-  params,
-}: {
-  params: { projectId: string };
-}) {
-  const { projectId } = params;
-  const project = Projects.find((project) => project.path === projectId);
+interface PageProps {
+  params: {
+    projectId: string;
+  };
+}
+
+async function getProjectFromParams(projectId: string) {
+  const project = allProjects.find(
+    (project) => project.slugAsParams === projectId
+  );
 
   if (!project) {
     notFound();
   }
 
-  const otherProjects = Projects.filter((p) => p.path !== projectId);
+  return project;
+}
+
+export default async function SingleProjectPage({ params }: PageProps) {
+  const { projectId } = params;
+
+  const project = await getProjectFromParams(projectId);
+  const otherProjects = allProjects.filter(
+    (project) => project.slugAsParams !== projectId
+  );
 
   return (
     <main className="py-16 md:py-24 lg:py-32">
@@ -45,20 +57,24 @@ export default function SingleProjectPage({
           </Link>
         </div>
 
-        <h1 className="text-5xl">{project?.name}</h1>
+        <hgroup>
+          <h1 className="text-5xl">{project.title}</h1>
+          <p className="text-xl mt-4 text-muted-foreground">
+            {project.description}
+          </p>
+        </hgroup>
 
         <div className="overflow-hidden rounded-xl my-16 shadow-2xl shadow-primary border-2 border-primary">
           <Image
             src={`/images/projects/${project.image}`}
-            alt={project.name}
+            alt={project.title}
             width={1920}
             height={919}
           />
         </div>
 
         <div className="mb-16">
-          <h2 className="text-3xl mb-4">About</h2>
-          <p className="text-xl">{project.description}</p>
+          <h2 className="text-3xl mb-4">About the project</h2>
         </div>
 
         <div className="flex items-center gap-4">
@@ -88,11 +104,11 @@ export default function SingleProjectPage({
         <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
           {otherProjects.slice(0, 2).map((project) => (
             <ProjectCard
-              key={project.name}
-              name={project.name}
+              key={project.title}
+              name={project.title}
               image={project.image}
               tag={project.tag}
-              path={project.path}
+              path={project.slug}
             />
           ))}
         </div>
@@ -104,9 +120,9 @@ export default function SingleProjectPage({
 }
 
 export async function generateStaticParams() {
-  const projects = Projects;
+  const projects = allProjects;
 
   return projects.map((project) => ({
-    projectId: project.path,
+    projectId: project.slugAsParams,
   }));
 }
