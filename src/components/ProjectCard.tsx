@@ -26,7 +26,7 @@ const ProjectCard = ({ image, name, tag, path, index }: ProjectCardProps) => {
       <Link href={`/projects/${path}`}>
         <div className="overflow-hidden rounded-xl group-hover:shadow-xl group-hover:shadow-primary/10 transition-all duration-300 border-2 group-hover:border-primary">
           <Image
-            src={`/images/projects/${image}?v=2`}
+            src={`/images/projects/${image}`}
             alt={name}
             width={1920}
             height={919}
