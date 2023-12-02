@@ -43,7 +43,7 @@ export async function generateMetadata({
 
   const url = env.NEXT_PUBLIC_APP_URL;
 
-  const ogUrl = new URL(`${url}/projects/${project.image}`);
+  const ogUrl = new URL(`${url}/api/og}`);
   ogUrl.searchParams.set("heading", project.title);
   ogUrl.searchParams.set("type", "Project");
   ogUrl.searchParams.set("mode", "dark");
