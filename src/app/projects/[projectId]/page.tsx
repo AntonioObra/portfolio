@@ -12,6 +12,7 @@ import { Icons } from "@/components/Icons";
 import ProjectCard from "@/components/ProjectCard";
 import { buttonVariants } from "@/components/ui/button";
 import { Mdx } from "@/components/Mdx";
+import { DocsPageHeader } from "@/components/PageHeader";
 
 interface PageProps {
   params: {
@@ -113,7 +114,7 @@ export default async function SingleProjectPage({ params }: PageProps) {
         </div>
 
         <hgroup>
-          <h1 className="text-5xl">{project.title}</h1>
+          <h1 className="text-7xl font-heading ">{project.title}</h1>
           <p className="text-xl mt-4 text-muted-foreground">
             {project.description}
           </p>
@@ -128,11 +129,9 @@ export default async function SingleProjectPage({ params }: PageProps) {
           />
         </div>
 
-        <div className="mb-16 pt-10">
-          {/* <DocsPageHeader heading="About the project" />{" "} */}
-          <div className="max-w-3xl mx-auto">
-            <Mdx code={project.body.code} />
-          </div>
+        <div className="mb-16 pt-10 max-w-3xl mx-auto">
+          <DocsPageHeader heading="About the project" />
+          <Mdx code={project.body.code} />
         </div>
 
         <div className="flex items-center gap-4">

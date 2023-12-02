@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { cn } from "@/lib/utils";
-// import Callout from "@/components/Callout";
+
+import Callout from "@/components/Callout";
 // import { MdxCard } from "@/components/MdxCard";
 
-// TODO : Fix types
 const components = {
   h1: ({ className, ...props }: any) => (
     <h1
@@ -141,7 +141,7 @@ const components = {
   ),
   code: ({ className, ...props }: any) => (
     <code
-      className={cn("relative rounded  font-mono text-sm w-full", className)}
+      className={cn("relative rounded font-heading text-sm w-full", className)}
       {...props}
     />
   ),
@@ -152,7 +152,7 @@ const components = {
       alt="Image"
     />
   ),
-  //   Callout,
+  Callout,
   //   Card: MdxCard,
 };
 

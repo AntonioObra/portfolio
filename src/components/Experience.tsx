@@ -29,7 +29,7 @@ const Experience = () => {
         </Canvas>
 
         <div className="absolute inset-0 flex items-center justify-center backdrop-brightness-75 ">
-          <h1 className="text-5xl md:text-7xl lg:text-9xl 2xl:text-[160px] 3xl:text-[200px] font-semibold leading-none text-white/40 outline-title ">
+          <h1 className="text-5xl md:text-7xl lg:text-9xl 2xl:text-[160px] 3xl:text-[200px] font-semibold leading-none text-white/40 outline-title">
             obradovic.dev
           </h1>
         </div>

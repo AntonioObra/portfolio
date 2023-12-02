@@ -28,7 +28,7 @@ export default function StackPage() {
             variants={variantsBottom}
             initial="hidden"
             transition={{
-              delay: 0.1 * index,
+              delay: 0.1 * (index % 9),
               ease: "easeInOut",
               duration: 0.5,
             }}
