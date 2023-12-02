@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-8 left-0 right-0 z-50 container">
+    <header className="sticky top-6 left-0 right-0 z-50 container">
       <nav className="p-4 border-2 rounded-lg flex justify-between backdrop-blur-2xl bg-black/60">
         {/* Links */}
         <div className="flex gap-4">

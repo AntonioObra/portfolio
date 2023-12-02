@@ -81,7 +81,7 @@ export default function ContactPage() {
                 href="https://github.com/AntonioObra"
                 target="_blank"
                 rel="noreferrer"
-                className={buttonVariants({ variant: "secondary", size: "lg" })}
+                className={buttonVariants({ variant: "default", size: "lg" })}
               >
                 <Icons.github className="h-5 w-5" />
               </Link>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                 href="https://www.linkedin.com/in/antonio-obradovi%C4%87-708362193/"
                 target="_blank"
                 rel="noreferrer"
-                className={buttonVariants({ variant: "secondary", size: "lg" })}
+                className={buttonVariants({ variant: "default", size: "lg" })}
               >
                 <Icons.linkedin className="h-5 w-5" />
               </Link>
