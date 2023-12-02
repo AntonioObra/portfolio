@@ -43,7 +43,7 @@ export async function generateMetadata({
 
   const url = env.NEXT_PUBLIC_APP_URL;
 
-  const ogUrl = new URL(`${url}/api/og}`);
+  const ogUrl = new URL(`${url}/api/og`);
   ogUrl.searchParams.set("heading", project.title);
   ogUrl.searchParams.set("type", "Project");
   ogUrl.searchParams.set("mode", "dark");
@@ -52,10 +52,10 @@ export async function generateMetadata({
     title: project.title,
     description: project.description,
     openGraph: {
-      title: project.title,
+      title: `${project.title} | obradovic.dev`,
       description: project.description,
       type: "article",
-      url: `${url}/projects/${project.slug}`,
+      url: `${url}/projects/${project.slugAsParams}`,
       images: [
         {
           url: ogUrl.toString(),
