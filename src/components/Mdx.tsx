@@ -146,7 +146,11 @@ const components = {
     />
   ),
   Image: ({ className, ...props }: any) => (
-    <Image className={cn("rounded-md border my-3", className)} {...props} />
+    <Image
+      className={cn("rounded-md border my-3", className)}
+      {...props}
+      alt="Image"
+    />
   ),
   //   Callout,
   //   Card: MdxCard,

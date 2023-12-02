@@ -20,7 +20,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://obradovic.dev/"),
+  metadataBase: new URL("https://obradovic.dev"),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
