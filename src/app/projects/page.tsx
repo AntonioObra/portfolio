@@ -1,7 +1,17 @@
+import { Metadata } from "next";
+
 import { allProjects } from "contentlayer/generated";
 
 import ProjectCard from "@/components/ProjectCard";
 import { DocsPageHeader } from "@/components/PageHeader";
+
+// * Generate Metadata for the ProjectsPage
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Projects",
+    description: "My projects",
+  };
+}
 
 export default function ProjectsPage() {
   if (allProjects.length === 0) {

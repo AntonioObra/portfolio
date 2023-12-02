@@ -1,10 +1,20 @@
+import { Metadata } from "next";
+
 import { Stacks } from "@/config/stack";
 
 import { DocsPageHeader } from "@/components/PageHeader";
 import { variantsBottom } from "@/lib/motion";
 import { MotionDiv } from "@/components/MotionDiv";
 
-export default function Stack() {
+// * Generate Metadata for the StackPage
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "My Tech Stack",
+    description: "My tech stack",
+  };
+}
+
+export default function StackPage() {
   return (
     <main className="container py-16 md:py-24 lg:py-32">
       <DocsPageHeader

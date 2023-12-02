@@ -1,12 +1,24 @@
+import Link from "next/link";
+import { Metadata } from "next";
+
+import { Stacks } from "@/config/stack";
+
+import ViewAll from "@/components/ViewAll";
 import { Icons } from "@/components/Icons";
 import { MotionDiv } from "@/components/MotionDiv";
 import { DocsPageHeader } from "@/components/PageHeader";
-import ViewAll from "@/components/ViewAll";
-import { Stacks } from "@/config/stack";
-import { variantsBottom } from "@/lib/motion";
-import Link from "next/link";
 
-export default function About() {
+import { variantsBottom } from "@/lib/motion";
+
+// * Generate Metadata for the AboutPage
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "About Me",
+    description: "About me",
+  };
+}
+
+export default function AboutPage() {
   return (
     <main className="py-16 md:py-24 lg:py-32 container">
       <MotionDiv

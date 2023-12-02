@@ -1,12 +1,21 @@
 import Link from "next/link";
+import { Metadata } from "next";
 
 import { Icons } from "@/components/Icons";
+import { MotionDiv } from "@/components/MotionDiv";
 import { DocsPageHeader } from "@/components/PageHeader";
 import { buttonVariants } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
-import { MotionDiv } from "@/components/MotionDiv";
 import { variantsLeft, variantsRight } from "@/lib/motion";
+
+// * Generate Metadata for the ContactPage
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Contact",
+    description: "My contact information",
+  };
+}
 
 export default function ContactPage() {
   return (

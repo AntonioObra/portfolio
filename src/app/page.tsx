@@ -1,15 +1,16 @@
 import Link from "next/link";
 
 import { Stacks } from "@/config/stack";
-import { Projects } from "@/config/projects";
+
+import { allProjects } from "contentlayer/generated";
 
 import { Icons } from "@/components/Icons";
-import ProjectCard from "@/components/ProjectCard";
-import { buttonVariants } from "@/components/ui/button";
-
 import ViewAll from "@/components/ViewAll";
 import Experience from "@/components/Experience";
 import { MotionDiv } from "@/components/MotionDiv";
+import ProjectCard from "@/components/ProjectCard";
+import { buttonVariants } from "@/components/ui/button";
+
 import { variantsBottom, variantsLeft, variantsRight } from "@/lib/motion";
 
 export default function Home() {
@@ -115,23 +116,25 @@ export default function Home() {
         </section>
 
         {/* Projects */}
-        <section className="container mb-20">
-          <h1 className="text-3xl">Recent Projects</h1>
+        {allProjects.length > 0 && (
+          <section className="container mb-20">
+            <h1 className="text-3xl">Recent Projects</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
-            {Projects.slice(0, 2).map((project, index) => (
-              <ProjectCard
-                key={project.name}
-                name={project.name}
-                image={project.image}
-                tag={project.tag}
-                path={project.path}
-              />
-            ))}
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
+              {allProjects.slice(0, 2).map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  name={project.title}
+                  image={project.image}
+                  tag={project.tag}
+                  path={project.slugAsParams}
+                />
+              ))}
+            </div>
 
-          <ViewAll text="View all projects" url="/projects" />
-        </section>
+            <ViewAll text="View all projects" url="/projects" />
+          </section>
+        )}
 
         {/* Stack */}
         <section className="container">

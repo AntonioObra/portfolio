@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+import { env } from "process";
 
 import { allProjects } from "contentlayer/generated";
 
@@ -8,6 +11,7 @@ import ViewAll from "@/components/ViewAll";
 import { Icons } from "@/components/Icons";
 import ProjectCard from "@/components/ProjectCard";
 import { buttonVariants } from "@/components/ui/button";
+import { Mdx } from "@/components/Mdx";
 
 interface PageProps {
   params: {
@@ -25,6 +29,49 @@ async function getProjectFromParams(projectId: string) {
   }
 
   return project;
+}
+
+// * Generate Metadata for the project
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const project = await getProjectFromParams(params.projectId);
+
+  if (!project) {
+    return {};
+  }
+
+  const url = env.NEXT_PUBLIC_APP_URL;
+
+  const ogUrl = new URL(`${url}/projects/${project.image}`);
+  ogUrl.searchParams.set("heading", project.title);
+  ogUrl.searchParams.set("type", "Project");
+  ogUrl.searchParams.set("mode", "dark");
+
+  return {
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      type: "article",
+      url: `${url}/projects/${project.slug}`,
+      images: [
+        {
+          url: ogUrl.toString(),
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      images: [ogUrl.toString()],
+    },
+  };
 }
 
 export default async function SingleProjectPage({ params }: PageProps) {
@@ -47,6 +94,14 @@ export default async function SingleProjectPage({ params }: PageProps) {
             Back to Projects
           </Link>
           <div className="bg-secondary w-full h-[1px] "></div>
+          <Link
+            href={project.github}
+            target="_blank"
+            className={buttonVariants({ variant: "secondary" })}
+          >
+            <Icons.github className="mr-2 w-4 h-4" />
+            View on GitHub
+          </Link>
           <Link
             href={project?.url}
             target="_blank"
@@ -73,8 +128,11 @@ export default async function SingleProjectPage({ params }: PageProps) {
           />
         </div>
 
-        <div className="mb-16">
-          <h2 className="text-3xl mb-4">About the project</h2>
+        <div className="mb-16 pt-10">
+          {/* <DocsPageHeader heading="About the project" />{" "} */}
+          <div className="max-w-3xl mx-auto">
+            <Mdx code={project.body.code} />
+          </div>
         </div>
 
         <div className="flex items-center gap-4">
@@ -87,6 +145,14 @@ export default async function SingleProjectPage({ params }: PageProps) {
           </Link>
           <div className="bg-secondary w-full h-[1px] "></div>
           <Link
+            href={project.github}
+            target="_blank"
+            className={buttonVariants({ variant: "secondary" })}
+          >
+            <Icons.github className="mr-2 w-4 h-4" />
+            View on GitHub
+          </Link>
+          <Link
             href={project?.url}
             target="_blank"
             className={buttonVariants({ variant: "default" })}
@@ -98,23 +164,25 @@ export default async function SingleProjectPage({ params }: PageProps) {
       </section>
 
       {/* Other Projects */}
-      <section className="container">
-        <h1 className="text-3xl">Other Projects</h1>
+      {otherProjects.length > 0 && (
+        <section className="container">
+          <h1 className="text-3xl">Other Projects</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
-          {otherProjects.slice(0, 2).map((project) => (
-            <ProjectCard
-              key={project.title}
-              name={project.title}
-              image={project.image}
-              tag={project.tag}
-              path={project.slug}
-            />
-          ))}
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
+            {otherProjects.slice(0, 2).map((project) => (
+              <ProjectCard
+                key={project.title}
+                name={project.title}
+                image={project.image}
+                tag={project.tag}
+                path={project.slugAsParams}
+              />
+            ))}
+          </div>
 
-        <ViewAll text="View All Projects" url="/projects" />
-      </section>
+          <ViewAll text="View All Projects" url="/projects" />
+        </section>
+      )}
     </main>
   );
 }
