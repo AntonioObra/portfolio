@@ -113,7 +113,7 @@ export default function Home() {
             >
               <div className="h-full p-8 rounded-lg border-2 border-muted bg-background-muted  flex flex-col justify-between hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
                 <div>
-                  <h3 className="text-3xl  mb-4 font-heading">Socials</h3>
+                  <h2 className="text-3xl  mb-4 font-heading">Socials</h2>
                   <p className="text-lg text-white/70">
                     You can also find me on various social media platforms and
                     professional networks. Feel free to follow, connect, or
@@ -130,6 +130,7 @@ export default function Home() {
                       variant: "default",
                       size: "lg",
                     })}
+                    title="Github"
                   >
                     <Icons.github className="h-5 w-5" />
                   </Link>
@@ -142,6 +143,7 @@ export default function Home() {
                       variant: "default",
                       size: "lg",
                     })}
+                    title="LinkedIn"
                   >
                     <Icons.linkedin className="h-5 w-5" />
                   </Link>

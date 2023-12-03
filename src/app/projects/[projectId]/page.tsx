@@ -126,6 +126,7 @@ export default async function SingleProjectPage({ params }: PageProps) {
             alt={project.title}
             width={1920}
             height={919}
+            priority
           />
         </div>
 

@@ -47,6 +47,7 @@ const Navbar = () => {
               href={link.link}
               className={buttonVariants({ variant: "ghost", size: "icon" })}
               target="_blank"
+              title={link.name}
             >
               <Icon className=" h-4 w-4" />
             </Link>

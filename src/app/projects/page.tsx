@@ -26,13 +26,14 @@ export default function ProjectsPage() {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
-        {allProjects.map((project) => (
+        {allProjects.map((project, index) => (
           <ProjectCard
             key={project.title}
             name={project.title}
             image={project.image}
             tag={project.tag}
             path={project.slugAsParams}
+            isPriority={index < 2 ? true : false}
           />
         ))}
       </div>

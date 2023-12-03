@@ -9,4 +9,5 @@ export type Link = {
 export type SocialLink = {
   link: string;
   icon: Icon;
+  name: string;
 };

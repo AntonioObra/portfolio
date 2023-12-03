@@ -11,9 +11,17 @@ type ProjectCardProps = {
   tag: string;
   path: string;
   index?: number;
+  isPriority?: boolean;
 };
 
-const ProjectCard = ({ image, name, tag, path, index }: ProjectCardProps) => {
+const ProjectCard = ({
+  image,
+  name,
+  tag,
+  path,
+  index,
+  isPriority,
+}: ProjectCardProps) => {
   return (
     <MotionDiv
       variants={variantsBottom}
@@ -31,6 +39,7 @@ const ProjectCard = ({ image, name, tag, path, index }: ProjectCardProps) => {
             width={1920}
             height={919}
             className="object-cover w-full h-[460px] group-hover:scale-105 transition-all duration-300"
+            priority={isPriority ? true : false}
           />
         </div>
 

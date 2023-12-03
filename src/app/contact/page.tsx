@@ -35,7 +35,7 @@ export default function ContactPage() {
         >
           <div className="flex flex-col justify-between  border-2 border-muted bg-background-muted rounded-lg p-8 hover:border-white/50 hover:shadow-2xl h-full hover:shadow-white/20 transition-all duration-300">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Email</h3>
+              <h2 className="text-2xl font-bold mb-4">Email</h2>
               <p className="text-lg text-white/70">
                 If you prefer direct communication, you can contact me through
                 e-mail. I will do my best to respond to your inquiries promptly.
@@ -68,7 +68,7 @@ export default function ContactPage() {
         >
           <div className="flex flex-col justify-between  border-2 border-muted bg-background-muted rounded-lg p-8 hover:border-white/50 hover:shadow-2xl h-full hover:shadow-white/20 transition-all duration-300">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Socials</h3>
+              <h2 className="text-2xl font-bold mb-4">Socials</h2>
               <p className="text-lg text-white/70">
                 You can also find me on various social media platforms and
                 professional networks. Feel free to follow, connect, or message
@@ -82,6 +82,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer"
                 className={buttonVariants({ variant: "default", size: "lg" })}
+                title="GitHub"
               >
                 <Icons.github className="h-5 w-5" />
               </Link>
@@ -91,6 +92,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer"
                 className={buttonVariants({ variant: "default", size: "lg" })}
+                title="LinkedIn"
               >
                 <Icons.linkedin className="h-5 w-5" />
               </Link>
