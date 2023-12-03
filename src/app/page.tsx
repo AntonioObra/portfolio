@@ -22,16 +22,16 @@ export default function Home() {
       <main className="py-16 md:py-24 lg:py-32">
         {/* About */}
         <section className="container mb-20">
-          <div className="grid auto-rows-fr grid-cols-3 gap-4">
+          <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <MotionDiv
               variants={variantsLeft}
               initial="hidden"
               transition={{ delay: 0.2, ease: "easeInOut", duration: 0.5 }}
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="row-span-1 col-span-2"
+              className="md:col-span-2"
             >
-              <div className="p-8 h-full rounded-lg border-2 border-muted bg-background-muted hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300">
+              <div className="p-8 md:h-full rounded-lg border-2 border-muted bg-background-muted hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300">
                 <h1 className="text-4xl  font-heading">About Me</h1>
                 <p className="text-lg mt-4 text-muted-foreground">
                   I am a full-stack developer with a passion for creating
@@ -59,9 +59,9 @@ export default function Home() {
               transition={{ delay: 0.3, ease: "easeInOut", duration: 0.5 }}
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="col-span-1 "
+              className="col-span-1"
             >
-              <div className="p-8 h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 flex flex-col justify-between">
+              <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 flex flex-col justify-between">
                 <p className="text-lg text-muted-foreground ">
                   Currently working as a Junior Front-End Developer at{" "}
                   <Link
@@ -96,9 +96,9 @@ export default function Home() {
               transition={{ delay: 0.4, ease: "easeInOut", duration: 0.5 }}
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="col-span-1 "
+              className="col-span-1"
             >
-              <div className="h-full p-8 rounded-lg bg-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-black flex justify-center items-center">
+              <div className="md:h-full p-8 rounded-lg bg-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-black flex justify-center items-center">
                 <Icons.code className="h-full w-1/2" />
               </div>
             </MotionDiv>
@@ -109,9 +109,9 @@ export default function Home() {
               transition={{ delay: 0.6, ease: "easeInOut", duration: 0.5 }}
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
-              className="col-span-2 "
+              className="md:col-span-2"
             >
-              <div className="h-full p-8 rounded-lg border-2 border-muted bg-background-muted  flex flex-col justify-between hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
+              <div className="md:h-full p-8 rounded-lg border-2 border-muted bg-background-muted  flex flex-col justify-between hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
                 <div>
                   <h2 className="text-3xl  mb-4 font-heading">Socials</h2>
                   <p className="text-lg text-white/70">

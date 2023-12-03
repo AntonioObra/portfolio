@@ -2,8 +2,11 @@
 "use client";
 
 import HeroSection from "@/components/HeroSection";
+import { Icons } from "@/components/Icons";
 import { MotionDiv } from "@/components/MotionDiv";
+import { buttonVariants } from "@/components/ui/button";
 import { Canvas } from "@react-three/fiber";
+import Link from "next/link";
 
 const variants = {
   hidden: {
@@ -28,10 +31,45 @@ const Experience = () => {
           <HeroSection />
         </Canvas>
 
-        <div className="absolute inset-0 flex items-center justify-center backdrop-brightness-75 ">
-          <h1 className="text-5xl md:text-7xl lg:text-9xl 2xl:text-[160px] 3xl:text-[200px] font-semibold leading-none text-white/40 outline-title">
-            obradovic.dev
-          </h1>
+        <div className="absolute inset-0  backdrop-brightness-75 backdrop-blur-lg">
+          <div className="container  py-48">
+            <hgroup className="border-b-2 border-muted-foreground/50 pb-4">
+              <h1 className="text-5xl md:text-7xl lg:text-9xl 2xl:text-[160px] 3xl:text-[200px] font-semibold 3xl:leading-none text-foreground">
+                obradovic<br></br>.dev
+              </h1>
+              <p className="mt-10 text-4xl text-muted-foreground font-heading">
+                Web developer, razazzaza
+              </p>
+            </hgroup>
+
+            <div className="mt-8 flex items-center justify-start gap-4">
+              <Link
+                href="https://github.com/AntonioObra"
+                target="_blank"
+                rel="noreferrer"
+                className={buttonVariants({
+                  variant: "default",
+                  size: "lg",
+                })}
+                title="Github"
+              >
+                <Icons.github className="h-5 w-5" />
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com/in/antonio-obradovi%C4%87-708362193/"
+                target="_blank"
+                rel="noreferrer"
+                className={buttonVariants({
+                  variant: "default",
+                  size: "lg",
+                })}
+                title="LinkedIn"
+              >
+                <Icons.linkedin className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </MotionDiv>
