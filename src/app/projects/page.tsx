@@ -22,7 +22,7 @@ export default function ProjectsPage() {
     <main className="container py-16 md:py-20">
       <PageHeader
         heading="My projects"
-        text="A list of my projects"
+        text="A list of my projects and work"
         className="space-y-4"
       />
 

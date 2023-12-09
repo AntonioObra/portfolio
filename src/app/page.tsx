@@ -20,10 +20,10 @@ export default function Home() {
       {/* Shader Hero  */}
       <Experience />
 
-      <main className="py-16 md:py-24 lg:py-32">
+      <main className="py-16 md:py-24 lg:py-32 overflow-hidden">
         {/* About */}
-        <section className="container mb-20">
-          <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-hidden">
+        <section className="container mb-20 ">
+          <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <MotionDiv
               variants={variantsLeft}
               initial="hidden"

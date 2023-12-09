@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import { Icons } from "@/components/Icons";
 import { MotionDiv } from "@/components/MotionDiv";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Canvas } from "@react-three/fiber";
 import Link from "next/link";
 
@@ -38,7 +39,7 @@ const Experience = () => {
                 obradovic<br></br>.dev
               </h1>
               <p className="mt-10 text-2xl md:text-4xl text-muted-foreground">
-                Full Stack Web Developer & Designer
+                Full Stack Web Developer. Creator of <Link href="https://coderepo.obradovic.dev/" className="text-white hover:underline underline-offset-4" target="_blank">Code Repo.</Link>
               </p>
             </hgroup>
 

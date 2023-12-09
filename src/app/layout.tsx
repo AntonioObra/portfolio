@@ -85,13 +85,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark [color-scheme:dark]">
       <head suppressHydrationWarning />
       <body
         className={cn(
           poppins.className,
           fontHeading.variable,
-          "min-h-screen bg-background dark antialiased"
+          "min-h-screen bg-background antialiased"
         )}
       >
         <Navbar />

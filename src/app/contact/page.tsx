@@ -19,13 +19,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ContactPage() {
   return (
-    <main className="container py-16 md:py-20">
+    <main className="container py-16 md:py-20 overflow-hidden">
       <PageHeader
         heading="Contact me"
         text="My contact information"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
         <MotionDiv
           variants={variantsLeft}
           initial="hidden"

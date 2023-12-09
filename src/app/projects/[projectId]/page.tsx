@@ -86,7 +86,7 @@ const BackToProjects = ({ github, url }: { github: string, url: string }) => {
         Back to Projects
       </Link>
 
-      <div className="bg-secondary w-full h-[1px] "></div>
+      <div className="bg-secondary w-full h-[2px] "></div>
 
       <div className="flex space-x-4">
         <Link

@@ -23,14 +23,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function AboutPage() {
   return (
-    <main className="py-16 md:py-20 container">
+    <main className="py-16 md:py-20 container overflow-hidden">
       <PageHeader
         heading="About Me"
-        text="About me and my experience"
+        text="About me, my experience and my tech stack"
         className="mb-8"
       />
 
-      <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-hidden">
+      <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
         <MotionDiv
           variants={variantsLeft}
           initial="hidden"
@@ -120,7 +120,7 @@ export default function AboutPage() {
         >
           <div className="md:h-full p-8 rounded-lg border-2 border-muted bg-background-muted  flex flex-col justify-between hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
             <div>
-              <h2 className="text-3xl  mb-4 font-heading">Socials</h2>
+              <h2 className="text-3xl mb-4">Socials</h2>
               <p className="text-lg text-white/70">
                 You can also find me on various social media platforms and
                 professional networks. Feel free to follow, connect, or
@@ -163,7 +163,7 @@ export default function AboutPage() {
         {/* Experience */}
         <PageSection
           heading="Experience"
-          text="List of my experience"
+          text="List of my experience working on various projects."
           className="mb-12"
           orientation="right"
         />
@@ -174,7 +174,7 @@ export default function AboutPage() {
               key={index}
               variants={variantsBottom}
               initial="hidden"
-              transition={{ delay: 0.35, ease: "easeInOut", duration: 0.5 }}
+              transition={{ delay: 0.2 * index, ease: "easeInOut", duration: 0.5 }}
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
             >
