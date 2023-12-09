@@ -38,7 +38,7 @@ const ProjectCard = ({
             alt={name}
             width={1920}
             height={919}
-            className="object-cover w-full h-[460px] group-hover:scale-105 transition-all duration-300"
+            className="object-cover w-full h-[400px] md:h-[460px] group-hover:scale-105 transition-all duration-300"
             priority={isPriority ? true : false}
           />
         </div>

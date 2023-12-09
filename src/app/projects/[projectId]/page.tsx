@@ -12,7 +12,7 @@ import { Icons } from "@/components/Icons";
 import ProjectCard from "@/components/ProjectCard";
 import { buttonVariants } from "@/components/ui/button";
 import { Mdx } from "@/components/Mdx";
-import { DocsPageHeader } from "@/components/PageHeader";
+import { PageSection } from "@/components/PageHeader";
 
 interface PageProps {
   params: {
@@ -75,6 +75,41 @@ export async function generateMetadata({
   };
 }
 
+const BackToProjects = ({ github, url }: { github: string, url: string }) => {
+  return (
+    <div className="flex flex-col md:flex-row items-center gap-4 mb-12">
+      <Link
+        href="/projects"
+        className={buttonVariants({ variant: "link" })}
+      >
+        <Icons.arrowLeft className="mr-2 w-4 h-4" />
+        Back to Projects
+      </Link>
+
+      <div className="bg-secondary w-full h-[1px] "></div>
+
+      <div className="flex space-x-4">
+        <Link
+          href={github}
+          target="_blank"
+          className={buttonVariants({ variant: "secondary" })}
+        >
+          <Icons.github className="mr-2 w-4 h-4" />
+          View on GitHub
+        </Link>
+        <Link
+          href={url}
+          target="_blank"
+          className={buttonVariants({ variant: "default" })}
+        >
+          <Icons.externalLink className="mr-2 w-4 h-4" />
+          Preview Project
+        </Link>
+      </div>
+    </div>
+  )
+}
+
 export default async function SingleProjectPage({ params }: PageProps) {
   const { projectId } = params;
 
@@ -86,87 +121,52 @@ export default async function SingleProjectPage({ params }: PageProps) {
   return (
     <main className="py-16 md:py-24 lg:py-32">
       <section className="container mb-20">
-        <div className="flex items-center gap-4 mb-12">
-          <Link
-            href="/projects"
-            className={buttonVariants({ variant: "link" })}
-          >
-            <Icons.arrowLeft className="mr-2 w-4 h-4" />
-            Back to Projects
-          </Link>
-          <div className="bg-secondary w-full h-[1px] "></div>
-          <Link
-            href={project.github}
-            target="_blank"
-            className={buttonVariants({ variant: "secondary" })}
-          >
-            <Icons.github className="mr-2 w-4 h-4" />
-            View on GitHub
-          </Link>
-          <Link
-            href={project?.url}
-            target="_blank"
-            className={buttonVariants({ variant: "default" })}
-          >
-            <Icons.externalLink className="mr-2 w-4 h-4" />
-            Preview Project
-          </Link>
-        </div>
+        <BackToProjects github={project.github} url={project.url} />
 
-        <hgroup>
-          <h1 className="text-7xl font-heading ">{project.title}</h1>
-          <p className="text-xl mt-4 text-muted-foreground">
-            {project.description}
-          </p>
-        </hgroup>
+        <PageSection
+          heading={project.title}
+          text={project.description}
+          border={false}
+          className="mb-12"
+          orientation="left"
+        />
 
-        <div className="overflow-hidden rounded-xl my-16 shadow-2xl shadow-primary border-2 border-primary">
+        <div className="overflow-hidden rounded-xl my-16 shadow-xl md:shadow-2xl shadow-primary/50 md:shadow-primary border-2 border-primary">
           <Image
             src={`/images/projects/${project.image}`}
             alt={project.title}
             width={1920}
             height={919}
             priority
+            className="object-cover w-full min-h-[400px]"
           />
         </div>
 
         <div className="mb-16 pt-10 max-w-3xl mx-auto">
-          <DocsPageHeader heading="About the project" />
+          <h1 className="text-6xl "></h1>
+          <h1 className="inline-block  text-4xl lg:text-5xl">
+            About the project
+          </h1>
+          <hr className="my-4 border-b border-secondary " />
           <Mdx code={project.body.code} />
         </div>
 
-        <div className="flex items-center gap-4">
-          <Link
-            href="/projects"
-            className={buttonVariants({ variant: "link" })}
-          >
-            <Icons.arrowLeft className="mr-2 w-4 h-4" />
-            Back to Projects
-          </Link>
-          <div className="bg-secondary w-full h-[1px] "></div>
-          <Link
-            href={project.github}
-            target="_blank"
-            className={buttonVariants({ variant: "secondary" })}
-          >
-            <Icons.github className="mr-2 w-4 h-4" />
-            View on GitHub
-          </Link>
-          <Link
-            href={project?.url}
-            target="_blank"
-            className={buttonVariants({ variant: "default" })}
-          >
-            <Icons.externalLink className="mr-2 w-4 h-4" />
-            Preview Project
-          </Link>
-        </div>
+        <BackToProjects github={project.github} url={project.url} />
+
       </section>
 
       {/* Other Projects */}
       {otherProjects.length > 0 && (
         <section className="container">
-          <h1 className="text-3xl">Other Projects</h1>
+          {/* <h1 className="text-3xl">Other Projects</h1> */}
+
+          <PageSection
+            heading="Other Projects"
+            text="A list of my other projects"
+            border={false}
+            className="mb-12"
+            orientation="left"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
             {otherProjects.slice(0, 2).map((project) => (

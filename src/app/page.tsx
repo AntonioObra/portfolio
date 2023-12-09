@@ -12,6 +12,7 @@ import ProjectCard from "@/components/ProjectCard";
 import { buttonVariants } from "@/components/ui/button";
 
 import { variantsBottom, variantsLeft, variantsRight } from "@/lib/motion";
+import { PageSection } from "@/components/PageHeader";
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
       <main className="py-16 md:py-24 lg:py-32">
         {/* About */}
         <section className="container mb-20">
-          <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-hidden">
             <MotionDiv
               variants={variantsLeft}
               initial="hidden"
@@ -32,7 +33,7 @@ export default function Home() {
               className="md:col-span-2"
             >
               <div className="p-8 md:h-full rounded-lg border-2 border-muted bg-background-muted hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300">
-                <h1 className="text-4xl  font-heading">About Me</h1>
+                <h1 className="text-4xl">About Me</h1>
                 <p className="text-lg mt-4 text-muted-foreground">
                   I am a full-stack developer with a passion for creating
                   beautiful and functional user experiences. I am a self-taught
@@ -113,7 +114,7 @@ export default function Home() {
             >
               <div className="md:h-full p-8 rounded-lg border-2 border-muted bg-background-muted  flex flex-col justify-between hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
                 <div>
-                  <h2 className="text-3xl  mb-4 font-heading">Socials</h2>
+                  <h2 className="text-3xl mb-4">Socials</h2>
                   <p className="text-lg text-white/70">
                     You can also find me on various social media platforms and
                     professional networks. Feel free to follow, connect, or
@@ -158,7 +159,12 @@ export default function Home() {
         {/* Projects */}
         {allProjects.length > 0 && (
           <section className="container mb-20">
-            <h1 className="text-3xl">Recent Projects</h1>
+            <PageSection
+              heading="Recent Projects"
+              text="Here are some of my recent projects. You can view all of my projects by clicking the button below."
+              orientation="left"
+              border={false}
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 mt-12 gap-8">
               {allProjects.slice(0, 2).map((project, index) => (
@@ -178,7 +184,14 @@ export default function Home() {
 
         {/* Stack */}
         <section className="container">
-          <h1 className="text-3xl mb-8">Stack</h1>
+          <PageSection
+            heading="Tech Stack"
+            text="Here are some of the technologies I use. You can view all of my tech stack by clicking the button below."
+            orientation="right"
+            className="mb-12"
+            border={false}
+          />
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Stacks.slice(0, 3).map(({ icon: Icon, ...stack }, index) => (
               <MotionDiv
