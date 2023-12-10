@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { allProjects } from "contentlayer/generated";
 
 import ProjectCard from "@/components/ProjectCard";
-import { PageHeader } from "@/components/PageHeader";
+import { PageHeader, PageSection } from "@/components/PageHeader";
 
 // * Generate Metadata for the ProjectsPage
 export async function generateMetadata(): Promise<Metadata> {
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
     <main className="container py-16 md:py-20">
       <PageHeader
         heading="My projects"
-        text="A list of my projects and work"
+        text="A list of my personal projects and my work"
         className="space-y-4"
       />
 

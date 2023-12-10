@@ -65,4 +65,12 @@ export const Stacks: Stack[] = [
     shortDescription: "An open-source language which builds on JavaScript.",
     tag: "Frontend",
   },
+  {
+    name: "shadcn/UI",
+    icon: Icons.shadcn,
+    description:
+      "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
+    shortDescription: "Beautifully designed components.",
+    tag: "Frontend",
+  },
 ];

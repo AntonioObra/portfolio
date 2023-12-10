@@ -30,7 +30,8 @@ export default function AboutPage() {
         className="mb-8"
       />
 
-      <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+      <div className="grid md:auto-rows-min grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+
         <MotionDiv
           variants={variantsLeft}
           initial="hidden"
@@ -40,19 +41,19 @@ export default function AboutPage() {
           className="md:col-span-2"
         >
           <div className="p-8 md:h-full rounded-lg border-2 border-muted bg-background-muted hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300">
-            <p className="text-lg mt-4 text-muted-foreground">
+            <p className="text-lg mt-4 text-foreground ">
               I am a full-stack developer with a passion for creating
               beautiful and functional user experiences. I am a self-taught
               developer and I have been coding for over 2 years. I have
               experience working with React, NextJS, PHP and more.
             </p>
-            <p className="text-lg mt-8 text-muted-foreground">
+            <p className="text-lg mt-8 text-foreground">
               I am currently looking for a full-time position as a
               full-stack developer. If you would like to work with me,
               please contact me at{" "}
               <Link
                 href="mailto:antonio@obradovic.dev"
-                className="text-primary underline-offset-4 hover:underline"
+                className="text-primary underline-offset-4 underline"
               >
                 antonio@obradovic.dev
               </Link>
@@ -69,16 +70,16 @@ export default function AboutPage() {
           className="col-span-1"
         >
           <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 flex flex-col justify-between gap-8">
-            <p className="text-lg text-muted-foreground ">
+            <p className="text-lg text-foreground ">
               Currently working as a Junior Front-End Developer at{" "}
               <Link
                 href="https://papar.hr"
                 target="_blank"
-                className="text-primary underline-offset-4 hover:underline"
+                className="text-primary underline-offset-4 underline"
               >
-                papar.hr
+                papar.hr.
               </Link>
-              . I am responsible for creating and maintaining websites for a
+              <br></br><br></br> I am responsible for creating and maintaining websites for a
               variety of clients including building custom software
               solutions for clients.
             </p>
@@ -94,6 +95,67 @@ export default function AboutPage() {
               <Icons.download className="h-5 w-5 mr-4" />
               Download my CV
             </a>
+          </div>
+        </MotionDiv>
+        <MotionDiv
+          variants={variantsRight}
+          initial="hidden"
+          transition={{ delay: 0.3, ease: "easeInOut", duration: 0.5 }}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          className="col-span-1"
+        >
+          <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 flex flex-col justify-between gap-8">
+            <p className="text-lg text-foreground ">
+              I&apos;m the creator and core mantainer of <b>Code Repo</b>, a platform for developers containing code snippets, guides, resources and more.
+            </p>
+
+            <Link
+              href="https://coderepo.obradovic.dev"
+              className={buttonVariants({
+                variant: "secondary",
+                size: "lg",
+              })}
+              target="_blank"
+            >
+              <Icons.externalLink className="h-5 w-5 mr-4" />
+              Visit Code Repo
+            </Link>
+          </div>
+        </MotionDiv>
+
+        <MotionDiv
+          variants={variantsRight}
+          initial="hidden"
+          transition={{ delay: 0.3, ease: "easeInOut", duration: 0.5 }}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          className="md:col-span-2 lg:col-span-1"
+        >
+          <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 flex flex-col justify-between gap-8">
+            <p className="text-lg text-foreground ">
+              I base my work on the principles of <span className="bg-primary text-black">functionality</span> and <span className="bg-primary text-black">simplicity</span>. I believe that less is more and that the best solutions are the simplest ones.
+            </p>
+
+            <p className="text-lg text-foreground ">
+              To learn more about my design philosophy, check out my <Link href="https://blog.obradovic.dev/posts" target="_blank" className="text-primary underline-offset-4 underline">article</Link> on the topic.
+            </p>
+          </div>
+        </MotionDiv>
+
+        <MotionDiv
+          variants={variantsRight}
+          initial="hidden"
+          transition={{ delay: 0.3, ease: "easeInOut", duration: 0.5 }}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          className="col-span-1"
+        >
+          <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 text-foreground flex flex-col justify-between gap-8">
+            <p className="text-lg text-foreground">
+              To find out more about me and my work, check out my <Link href="https://blog.obradovic.dev/posts" target="_blank" className="text-primary underline-offset-4 underline">blog</Link>.
+            </p>
+
           </div>
         </MotionDiv>
 
@@ -121,7 +183,7 @@ export default function AboutPage() {
           <div className="md:h-full p-8 rounded-lg border-2 border-muted bg-background-muted  flex flex-col justify-between hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
             <div>
               <h2 className="text-3xl mb-4">Socials</h2>
-              <p className="text-lg text-white/70">
+              <p className="text-lg text-foreground">
                 You can also find me on various social media platforms and
                 professional networks. Feel free to follow, connect, or
                 message me through these channels:

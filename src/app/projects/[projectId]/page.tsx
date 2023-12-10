@@ -89,14 +89,16 @@ const BackToProjects = ({ github, url }: { github: string, url: string }) => {
       <div className="bg-secondary w-full h-[2px] "></div>
 
       <div className="flex space-x-4">
-        <Link
-          href={github}
-          target="_blank"
-          className={buttonVariants({ variant: "secondary" })}
-        >
-          <Icons.github className="mr-2 w-4 h-4" />
-          View on GitHub
-        </Link>
+        {github !== "" &&
+          <Link
+            href={github}
+            target="_blank"
+            className={buttonVariants({ variant: "secondary" })}
+          >
+            <Icons.github className="mr-2 w-4 h-4" />
+            View on GitHub
+          </Link>
+        }
         <Link
           href={url}
           target="_blank"

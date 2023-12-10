@@ -13,6 +13,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 import { variantsBottom, variantsLeft, variantsRight } from "@/lib/motion";
 import { PageSection } from "@/components/PageHeader";
+import { StackCardShort } from "@/components/StackCard";
 
 export default function Home() {
   return (
@@ -193,7 +194,7 @@ export default function Home() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Stacks.slice(0, 3).map(({ icon: Icon, ...stack }, index) => (
+            {Stacks.slice(0, 3).map((stack, index) => (
               <MotionDiv
                 variants={variantsBottom}
                 initial="hidden"
@@ -206,15 +207,7 @@ export default function Home() {
                 viewport={{ once: true, amount: 0.25 }}
                 key={stack.name}
               >
-                <div className="py-6 px-8 bg-secondary flex items-center gap-4 rounded-xl group hover:shadow-xl hover:shadow-primary/10 border-2 border-muted  hover:border-primary transition-all duration-300 h-full">
-                  <Icon className="h-10 w-10 group-hover:text-primary transition-colors duration-300" />
-                  <hgroup>
-                    <h2 className="text-lg">{stack.name}</h2>
-                    <p className="text-sm text-muted-foreground">
-                      {stack.shortDescription}
-                    </p>
-                  </hgroup>
-                </div>
+                <StackCardShort {...stack} />
               </MotionDiv>
             ))}
           </div>

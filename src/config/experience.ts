@@ -1,6 +1,6 @@
 export const Experience = [
   {
-    title: "Creator of Code Repo",
+    title: "Creator and Core Mantainer of Code Repo",
     company: "Code Repo",
     date: "2023 - Present",
     description:
