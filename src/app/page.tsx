@@ -24,7 +24,7 @@ export default function Home() {
       <main className="py-16 md:py-24 lg:py-32 overflow-hidden">
         {/* About */}
         <section className="container mb-20 ">
-          <div className="grid md:auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:auto-rows-min grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <MotionDiv
               variants={variantsLeft}
               initial="hidden"
@@ -73,7 +73,7 @@ export default function Home() {
                   >
                     papar.hr
                   </Link>
-                  . I am responsible for creating and maintaining websites for a
+                  . <br></br><br></br>I am responsible for creating and maintaining websites for a
                   variety of clients including building custom software
                   solutions for clients.
                 </p>
