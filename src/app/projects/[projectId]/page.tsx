@@ -119,6 +119,8 @@ export default async function SingleProjectPage({ params }: PageProps) {
   const otherProjects = allProjects.filter(
     (project) => project.slugAsParams !== projectId
   );
+  // * Shuffle the array of otherProjects so that the same projects don't show up every time
+  otherProjects.sort(() => Math.random() - 0.5);
 
   return (
     <main className="py-16 md:py-24 lg:py-32">
