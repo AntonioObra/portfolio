@@ -19,11 +19,11 @@ export function PageHeader({
   ...props
 }: PageHeaderProps) {
   return (
-    <hgroup className={cn("border-b-2 border-muted-foreground/50 pb-8", className)} {...props}>
-      <h1 className="text-5xl md:text-7xl lg:text-9xl 2xl:text-[140px] font-semibold 2xl:leading-tight text-foreground">
+    <hgroup className={cn("border-b-2 border-muted-foreground/50 pb-8 space-y-2 md:space-y-0", className)} {...props}>
+      <h1 className="text-5xl  md:text-7xl lg:text-9xl 2xl:text-[140px] font-semibold 2xl:leading-tight text-foreground">
         {heading}
       </h1>
-      {text && <p className="text-3xl text-muted-foreground">{text}</p>}
+      {text && <p className="text-xl md:text-3xl text-muted-foreground">{text}</p>}
     </hgroup>
   );
 }
@@ -39,10 +39,10 @@ export function PageSection({
   return (
     <div className={className}>
       <hgroup className="space-y-4" {...props}>
-        <h1 className={`text-5xl md:text-7xl lg:text-8xl font-semibold text-foreground ${orientation === "right" && "text-right"}`}>
+        <h1 className={`text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-foreground ${orientation === "right" && "text-right"}`}>
           {heading}
         </h1>
-        {text && <p className={`text-xl text-muted-foreground ${orientation === "right" && "text-right"}`}>{text}</p>}
+        {text && <p className={`text-lg sm:text-xl text-muted-foreground ${orientation === "right" && "text-right"}`}>{text}</p>}
       </hgroup>
       {border && <hr className="my-4 border-b border-secondary " />}
     </div>

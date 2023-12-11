@@ -145,7 +145,6 @@ export default async function SingleProjectPage({ params }: PageProps) {
         </div>
 
         <div className="mb-16 pt-10 max-w-3xl mx-auto">
-          <h1 className="text-6xl "></h1>
           <h1 className="inline-block  text-4xl lg:text-5xl">
             About the project
           </h1>
