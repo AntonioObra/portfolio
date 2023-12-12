@@ -42,15 +42,8 @@ export default function Home() {
                   experience working with React, NextJS, PHP and more.
                 </p>
                 <p className="text-lg mt-8 text-muted-foreground">
-                  I am currently looking for a full-time position as a
-                  full-stack developer. If you would like to work with me,
-                  please contact me at{" "}
-                  <Link
-                    href="mailto:antonio@obradovic.dev"
-                    className="text-primary underline-offset-4 hover:underline"
-                  >
-                    antonio@obradovic.dev
-                  </Link>
+                  My web development journey started in 2020 when I was reintroduced to the wonders of html and css and have gotten hooked immediately, since than i&apos;ve gotten familiar with tons of new technologies like git and github, javascript and typescript, react and nextjs, nodejs and express, mongo and firebase...
+                  and went to land my first job 6 months after graduationg from highschool.
                 </p>
               </div>
             </MotionDiv>
