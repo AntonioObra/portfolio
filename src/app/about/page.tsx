@@ -183,7 +183,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="mt-8 flex items-center justify-start gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
               <Link
                 href="https://github.com/AntonioObra"
                 target="_blank"
@@ -208,6 +208,26 @@ export default function AboutPage() {
                 title="LinkedIn"
               >
                 <Icons.linkedin className="h-5 w-5" />
+              </Link>
+
+              <Link
+                href="https://medium.com/@antonio_84382"
+                target="_blank"
+                rel="noreferrer"
+                className={buttonVariants({ variant: "default", size: "lg" })}
+                title="Medium"
+              >
+                <Icons.medium className="h-5 w-5" />
+              </Link>
+
+              <Link
+                href="https://dev.to/antonioobra"
+                target="_blank"
+                rel="noreferrer"
+                className={buttonVariants({ variant: "default", size: "lg" })}
+                title="Dev.to"
+              >
+                <Icons.devTo className="h-5 w-5" />
               </Link>
             </div>
           </div>
