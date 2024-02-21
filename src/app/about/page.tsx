@@ -31,7 +31,6 @@ export default function AboutPage() {
       />
 
       <div className="grid md:auto-rows-min grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-
         <MotionDiv
           variants={variantsLeft}
           initial="hidden"
@@ -41,15 +40,19 @@ export default function AboutPage() {
           className="md:col-span-2"
         >
           <div className="p-8 md:h-full rounded-lg border-2 border-muted bg-background-muted hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300">
-            <p className="text-lg mt-4 text-foreground ">
-              I am a full-stack developer with a passion for creating
-              beautiful and functional user experiences. I am a self-taught
-              developer and I have been coding for over 2 years. I have
-              experience working with React, NextJS, PHP and more.
+            <p className="text-lg text-muted-foreground ">
+              I am a full-stack developer with a passion for creating beautiful
+              and functional user experiences. I am a self-taught developer and
+              I have been coding for over 2 years. I have experience working
+              with React, NextJS, PHP and more.
             </p>
-            <p className="text-lg mt-8 text-foreground">
-              My web development journey started in 2020 when I was reintroduced to the wonders of html and css and have gotten hooked immediately, since than i&apos;ve gotten familiar with tons of new technologies like git and github, javascript and typescript, react and nextjs, nodejs and express, mongo and firebase...
-              and went to land my first job 6 months after graduationg from highschool.
+            <p className="text-lg mt-8 text-muted-foreground">
+              My web development journey started in 2020 when I was reintroduced
+              to the wonders of html and css and have gotten hooked immediately,
+              since than i&apos;ve gotten familiar with tons of new technologies
+              like git and github, javascript and typescript, react and nextjs,
+              nodejs and express, mongo and firebase... and went to land my
+              first job 6 months after graduationg from highschool.
             </p>
           </div>
         </MotionDiv>
@@ -63,7 +66,7 @@ export default function AboutPage() {
           className="col-span-1"
         >
           <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 flex flex-col justify-between gap-8">
-            <p className="text-lg text-foreground ">
+            <p className="text-lg text-muted-foreground ">
               Currently working as a Junior Front-End Developer at{" "}
               <Link
                 href="https://papar.hr"
@@ -72,8 +75,9 @@ export default function AboutPage() {
               >
                 papar.hr.
               </Link>
-              <br></br><br></br> I am responsible for creating and maintaining websites for a
-              variety of clients including building custom software
+              <br></br>
+              <br></br> I am responsible for creating and maintaining websites
+              for a variety of clients including building custom software
               solutions for clients.
             </p>
 
@@ -99,12 +103,14 @@ export default function AboutPage() {
           className="col-span-1"
         >
           <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 flex flex-col justify-between gap-8">
-            <p className="text-lg text-foreground ">
-              I&apos;m the creator and core mantainer of <b>Code Repo</b>, a platform for developers containing code snippets, guides, resources and more.
+            <p className="text-lg text-muted-foreground ">
+              I&apos;m the creator and core mantainer of <b>Code Repo</b>, a
+              platform for developers containing code snippets, guides,
+              resources and more.
             </p>
 
             <Link
-              href="https://coderepo.obradovic.dev"
+              href="https://coderepo.openvoid.dev"
               className={buttonVariants({
                 variant: "secondary",
                 size: "lg",
@@ -126,12 +132,24 @@ export default function AboutPage() {
           className="md:col-span-2 lg:col-span-1"
         >
           <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 flex flex-col justify-between gap-8">
-            <p className="text-lg text-foreground ">
-              I base my work on the principles of <span className="bg-primary text-black">functionality</span> and <span className="bg-primary text-black">simplicity</span>. I believe that less is more and that the best solutions are the simplest ones.
+            <p className="text-lg text-muted-foreground ">
+              I base my work on the principles of{" "}
+              <span className="bg-primary text-black">functionality</span> and{" "}
+              <span className="bg-primary text-black">simplicity</span>. I
+              believe that less is more and that the best solutions are the
+              simplest ones.
             </p>
 
-            <p className="text-lg text-foreground ">
-              To learn more about my design philosophy, check out my <Link href="https://blog.obradovic.dev/posts" target="_blank" className="text-primary underline-offset-4 underline">article</Link> on the topic.
+            <p className="text-lg text-muted-foreground ">
+              To learn more about my design philosophy, check out my{" "}
+              <Link
+                href="https://blog.obradovic.dev/posts"
+                target="_blank"
+                className="text-primary underline-offset-4 underline"
+              >
+                article
+              </Link>{" "}
+              on the topic.
             </p>
           </div>
         </MotionDiv>
@@ -144,11 +162,18 @@ export default function AboutPage() {
           viewport={{ once: true, amount: 0.25 }}
           className="col-span-1"
         >
-          <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 text-foreground flex flex-col justify-between gap-8">
-            <p className="text-lg text-foreground">
-              To find out more about me and my work, check out my <Link href="https://blog.obradovic.dev/posts" target="_blank" className="text-primary underline-offset-4 underline">blog</Link>.
+          <div className="p-8 md:h-full rounded-lg border-2 border-muted  bg-background-muted hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300 text-muted-foreground flex flex-col justify-between gap-8">
+            <p className="text-lg text-muted-foreground">
+              To find out more about me and my work, check out my{" "}
+              <Link
+                href="https://blog.obradovic.dev/posts"
+                target="_blank"
+                className="text-primary underline-offset-4 underline"
+              >
+                blog
+              </Link>
+              .
             </p>
-
           </div>
         </MotionDiv>
 
@@ -175,11 +200,10 @@ export default function AboutPage() {
         >
           <div className="md:h-full p-8 rounded-lg border-2 border-muted bg-background-muted  flex flex-col justify-between hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
             <div>
-              <h2 className="text-3xl mb-4">Socials</h2>
-              <p className="text-lg text-foreground">
+              <p className="text-lg text-muted-foreground">
                 You can also find me on various social media platforms and
-                professional networks. Feel free to follow, connect, or
-                message me through these channels:
+                professional networks. Feel free to follow, connect, or message
+                me through these channels:
               </p>
             </div>
 
@@ -249,7 +273,11 @@ export default function AboutPage() {
               key={index}
               variants={variantsBottom}
               initial="hidden"
-              transition={{ delay: 0.2 * index, ease: "easeInOut", duration: 0.5 }}
+              transition={{
+                delay: 0.2 * index,
+                ease: "easeInOut",
+                duration: 0.5,
+              }}
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
             >

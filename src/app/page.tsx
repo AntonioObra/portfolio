@@ -34,16 +34,20 @@ export default function Home() {
               className="md:col-span-2"
             >
               <div className="p-8 md:h-full rounded-lg border-2 border-muted bg-background-muted hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300">
-                <h1 className="text-4xl">About Me</h1>
-                <p className="text-lg mt-4 text-muted-foreground">
+                <p className="text-lg text-muted-foreground">
                   I am a full-stack developer with a passion for creating
                   beautiful and functional user experiences. I am a self-taught
                   developer and I have been coding for over 2 years. I have
                   experience working with React, NextJS, PHP and more.
                 </p>
                 <p className="text-lg mt-8 text-muted-foreground">
-                  My web development journey started in 2020 when I was reintroduced to the wonders of html and css and have gotten hooked immediately, since than i&apos;ve gotten familiar with tons of new technologies like git and github, javascript and typescript, react and nextjs, nodejs and express, mongo and firebase...
-                  and went to land my first job 6 months after graduationg from highschool.
+                  My web development journey started in 2020 when I was
+                  reintroduced to the wonders of html and css and have gotten
+                  hooked immediately, since than i&apos;ve gotten familiar with
+                  tons of new technologies like git and github, javascript and
+                  typescript, react and nextjs, nodejs and express, mongo and
+                  firebase... and went to land my first job 6 months after
+                  graduationg from highschool.
                 </p>
               </div>
             </MotionDiv>
@@ -66,9 +70,10 @@ export default function Home() {
                   >
                     papar.hr
                   </Link>
-                  . <br></br><br></br>I am responsible for creating and maintaining websites for a
-                  variety of clients including building custom software
-                  solutions for clients.
+                  . <br></br>
+                  <br></br>I am responsible for creating and maintaining
+                  websites for a variety of clients including building custom
+                  software solutions for clients.
                 </p>
 
                 <a
@@ -108,7 +113,6 @@ export default function Home() {
             >
               <div className="md:h-full p-8 rounded-lg border-2 border-muted bg-background-muted  flex flex-col justify-between hover:border-white/50 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
                 <div>
-                  <h2 className="text-3xl mb-4">Socials</h2>
                   <p className="text-lg text-white/70">
                     You can also find me on various social media platforms and
                     professional networks. Feel free to follow, connect, or
@@ -147,7 +151,10 @@ export default function Home() {
                     href="https://medium.com/@antonio_84382"
                     target="_blank"
                     rel="noreferrer"
-                    className={buttonVariants({ variant: "default", size: "lg" })}
+                    className={buttonVariants({
+                      variant: "default",
+                      size: "lg",
+                    })}
                     title="Medium"
                   >
                     <Icons.medium className="h-5 w-5" />
@@ -157,7 +164,10 @@ export default function Home() {
                     href="https://dev.to/antonioobra"
                     target="_blank"
                     rel="noreferrer"
-                    className={buttonVariants({ variant: "default", size: "lg" })}
+                    className={buttonVariants({
+                      variant: "default",
+                      size: "lg",
+                    })}
                     title="Dev.to"
                   >
                     <Icons.devTo className="h-5 w-5" />

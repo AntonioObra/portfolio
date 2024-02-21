@@ -32,14 +32,29 @@ const Experience = () => {
           <HeroSection />
         </Canvas>
 
-        <div className="absolute inset-0 pt-20 backdrop-brightness-50 md:backdrop-brightness-75 backdrop-blur-lg flex items-center justify-center">
+        <div className="absolute inset-0 pt-20 backdrop-brightness-50 md:backdrop-brightness-50 backdrop-blur-lg flex items-center justify-center">
           <div className="container">
             <hgroup className="border-b-2 border-muted-foreground/50 pb-4">
               <h1 className="text-6xl md:text-7xl lg:text-9xl 2xl:text-[160px] 3xl:text-[200px] font-semibold 3xl:leading-none text-foreground">
                 obradovic<br></br>.dev
               </h1>
               <p className="mt-10 text-2xl md:text-4xl text-muted-foreground">
-                Full Stack Web Developer. Creator of <Link href="https://coderepo.obradovic.dev/" className="text-white hover:underline underline-offset-4" target="_blank">Code Repo.</Link>
+                Full Stack Web Developer. Creator of{" "}
+                <Link
+                  href="https://openvoid.dev/"
+                  className="text-white hover:underline underline-offset-4"
+                  target="_blank"
+                >
+                  Open Void
+                </Link>{" "}
+                &{" "}
+                <Link
+                  href="https://coderepo.openvoid.dev/"
+                  className="text-white hover:underline underline-offset-4"
+                  target="_blank"
+                >
+                  Code Repo.
+                </Link>
               </p>
             </hgroup>
 
