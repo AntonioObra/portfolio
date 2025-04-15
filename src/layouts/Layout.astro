@@ -1,0 +1,37 @@
+---
+import "@fontsource-variable/inter";
+import "../styles/global.css";
+
+import Spotlight from "../components/Spotlight.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <title>obradovic.dev</title>
+    </head>
+
+    <body class="scheme-dark bg-zinc-950 relative">
+        <Spotlight />
+        <main class="grid grid-cols-6 container max-w-6xl mx-auto gap-20">
+            <div class="col-span-4 lg:py-60">
+                <slot />
+            </div>
+
+            <Navbar />
+        </main>
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        margin: 0;
+    }
+</style>
