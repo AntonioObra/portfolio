@@ -1,28 +1,17 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
+
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+
+import Breaker from "../components/Breaker.astro";
 ---
 
 <Layout>
-    <Welcome />
-
-    <main class="mt-20">
-        <h2>Creator of Open Void</h2>
-
-        <p class="mt-8">
-            I am a full-stack developer with a passion for creating beautiful
-            and functional user experiences. I am a self-taught developer and I
-            have been coding for over 2 years. I have experience working with
-            React, NextJS, PHP and more.
-        </p>
-
-        <p class="mt-5">
-            My web development journey started in 2020 when I was reintroduced
-            to the wonders of html and css and have gotten hooked immediately,
-            since than i've gotten familiar with tons of new technologies like
-            git and github, javascript and typescript, react and nextjs, nodejs
-            and express, mongo and firebase... and went to land my first job 6
-            months after graduationg from highschool.
-        </p>
-    </main>
+    <About />
+    <Breaker />
+    <Experience />
+    <Breaker />
+    <Projects />
 </Layout>

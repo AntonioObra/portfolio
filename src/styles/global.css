@@ -2,6 +2,7 @@
 
 @theme {
     --font-main: "Inter Variable", "sans-serif";
+    --color-primary: #4de6a6;
 }
 
 ::selection {
@@ -30,5 +31,5 @@ h2 {
 }
 
 p {
-    @apply text-stone-400 xl:text-lg italic;
+    @apply text-stone-400 text-lg italic;
 }

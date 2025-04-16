@@ -1,0 +1,41 @@
+---
+import ExperienceCard from "./ExperienceCard.astro";
+
+const experiences = [
+    {
+        title: "Creator of Open Void & Abyss",
+        description:
+            "Created a collective of web knowledge, web framework and more...",
+        company: "Open Void",
+        startDate: "2024",
+        endDate: "Present",
+    },
+    {
+        title: "Junior Web Developer",
+        description:
+            "I am responsible for creating and maintaining websites for a variety of clients including building custom software solutions for clients.",
+        company: "Papar",
+        startDate: "2022",
+        endDate: "Present",
+    },
+];
+---
+
+<section id="experience">
+    <h2>Experience</h2>
+    <p class="mt-8">List of my experience working on various projects.</p>
+
+    <div class="mt-10 flex flex-col gap-8">
+        {
+            experiences.map((experience, index) => (
+                <ExperienceCard
+                    title={experience.title}
+                    description={experience.description}
+                    company={experience.company}
+                    startDate={experience.startDate}
+                    endDate={experience.endDate}
+                />
+            ))
+        }
+    </div>
+</section>
