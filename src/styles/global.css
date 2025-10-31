@@ -1,35 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-    --font-main: "Inter Variable", "sans-serif";
-    --color-primary: #4de6a6;
+    --font-main: "Instrument Serif", "sans-serif";
+    --font-normal: "Inter Variable", "sans-serif";
+    --color-primary: var(--color-emerald-500);
 }
 
 ::selection {
     @apply text-zinc-100;
-    background-color: #4de6a6b0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-button {
-    @apply font-main;
-}
-
-h1 {
-    @apply text-stone-100 xl:text-8xl font-bold;
-}
-
-h2 {
-    @apply text-stone-100 xl:text-3xl font-bold;
-}
-
-p {
-    @apply text-stone-400 text-lg italic;
+    background-color: var(--color-emerald-500);
 }

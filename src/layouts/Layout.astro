@@ -1,9 +1,10 @@
 ---
-import "@fontsource-variable/inter";
+import '@fontsource/instrument-serif';
+import '@fontsource-variable/inter';
+
 import "../styles/global.css";
 
 import Spotlight from "../components/Spotlight.astro";
-import Navbar from "../components/Navbar.astro";
 ---
 
 <!doctype html>
@@ -17,21 +18,11 @@ import Navbar from "../components/Navbar.astro";
         <title>obradovic.dev</title>
     </head>
 
-    <body class="scheme-dark bg-zinc-950 relative">
+    <body class="scheme-light bg-[#fcfcfa] relative">
         <Spotlight />
-        <main class="grid grid-cols-6 container max-w-6xl mx-auto gap-20">
-            <div class="col-span-4 lg:py-60">
-                <slot />
-            </div>
 
-            <Navbar />
+        <main>
+            <slot />
         </main>
     </body>
 </html>
-
-<style>
-    html,
-    body {
-        margin: 0;
-    }
-</style>
