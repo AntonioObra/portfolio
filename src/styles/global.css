@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+    --font-main: "Instrument Serif", "sans-serif";
+    --font-normal: "Inter Variable", "sans-serif";
+    --color-primary: var(--color-emerald-500);
+}
+
+::selection {
+    @apply text-zinc-100;
+    background-color: var(--color-emerald-500);
+}

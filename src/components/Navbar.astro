@@ -1,0 +1,28 @@
+---
+const links = [
+ {
+   link: "index",
+   name: "Index",
+ },
+ {
+   link: "about",
+   name: "About",
+ },
+ {
+   link: "projects",
+   name: "Projects",
+ },
+ {
+   link: "contact",
+   name: "Contact",
+ },
+];
+---
+
+<navbar class="sticky top-[30px] col-span-2 flex justify-center">
+    <ul class="flex items-center justify-center gap-6 bg-emerald-500/90 backdrop-blur-2xl ring-4 ring-emerald-500/50 w-fit py-2 px-6 rounded-2xl">
+        {
+            links.map((link) => <li ><a class="text-sm font-semibold text-white" href=`#${link.link}`>{link.name}</a></li>)
+        }
+    </ul>
+</navbar>
