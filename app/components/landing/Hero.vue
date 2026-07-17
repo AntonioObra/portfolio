@@ -76,21 +76,19 @@ defineProps<{
         }"
       >
         <UButton
-          :color="global.available ? 'success' : 'error'"
+          color="success"
           variant="ghost"
           class="gap-2"
-          :to="global.available ? global.meetingLink : ''"
-          :label="global.available ? 'Available for new projects' : 'Not available at the moment'"
+          to="mailto:antonio@obradovic.dev"
+          label="Available for new projects"
         >
           <template #leading>
             <span class="relative flex size-2">
               <span
-                class="absolute inline-flex size-full rounded-full opacity-75"
-                :class="global.available ? 'bg-success animate-ping' : 'bg-error'"
+                class="absolute inline-flex size-full rounded-full opacity-75 bg-success animate-ping"
               />
               <span
-                class="relative inline-flex size-2 scale-90 rounded-full"
-                :class="global.available ? 'bg-success' : 'bg-error'"
+                class="relative inline-flex size-2 scale-90 rounded-full bg-success"
               />
             </span>
           </template>
