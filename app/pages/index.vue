@@ -24,14 +24,12 @@ useSeoMeta({
     <LandingHero :page />
     <UPageSection
       :ui="{
-        container: 'pt-0! lg:grid lg:grid-cols-2 lg:gap-8'
+        container: 'pt-0! lg:grid lg:grid-cols-2 lg:gap-8 max-w-6xl mx-auto'
       }"
     >
       <LandingAbout :page />
       <LandingWorkExperience :page />
     </UPageSection>
     <LandingBlog :page />
-    <LandingTestimonials :page />
-    <LandingFAQ :page />
   </UPage>
 </template>
