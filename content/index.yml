@@ -1,0 +1,27 @@
+seo:
+  title: "Antonio Obradovic - Full Stack Developer"
+  description: "Welcome to my portfolio! I'm Antonio Obradovic, a Full Stack Developer based in Zagreb, Croatia. I specialize in creating intuitive digital experiences that are both beautiful and functional."
+title: "Hy👋, I'm Antonio Obradovic, Full Stack Developer"
+description: "I craft intuitive digital experiences where design meets functionality. Based in Zagreb, Croatia, bringing ideas to life through code and creativity."
+about:
+  title: "About Me"
+  description: |
+    As a Full Stack Developer with 4 years of experience, I had an experience on building a lot of interesting and challenging projects. In my free time I focus on learning new technologies and improving my skills.
+experience:
+  title: Work Experience
+  items:
+    - position: "Full Stack Developer at"
+      date: "2026 - Present"
+      company:
+        name: Lognet
+        url: "https://lognet.hr"
+        color: "#0ea5e9"
+    - position: "Full Stack Developer at"
+      date: "2022 - 2026"
+      company:
+        name: Papar
+        url: "https://papar.hr"
+        color: "#00DC82"
+blog:
+  title: "Latest Articles"
+  description: "Some of my recent thoughts"
