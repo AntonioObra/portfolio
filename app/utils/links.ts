@@ -13,7 +13,7 @@ export const navLinks: NavigationMenuItem[] = [{
   icon: 'i-lucide-file-text',
   to: '/blog'
 }, {
-  label: 'About',
+  label: 'Contact me',
   icon: 'i-lucide-user',
-  to: '/about'
+  to: '/contact'
 }]

@@ -34,15 +34,13 @@ defineOgImage('Portfolio', { title, description })
 </script>
 
 <template>
-  <UPage v-if="page">
+  <UPage v-if="page" class="max-w-6xl mx-auto">
     <UPageHero
       :title="page.title"
       :description="page.description"
-      :links="page.links"
       :ui="{
         title: 'mx-0! text-left',
-        description: 'mx-0! text-left',
-        links: 'justify-start'
+        description: 'mx-0! text-left'
       }"
     />
     <UPageSection
