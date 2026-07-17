@@ -1,6 +1,5 @@
 title: Abyss
 description: Abyss is a PHP framework that provides a simple and elegant way to build web applications. It was built more out of curiosity than anything else.
-image: https://images.unsplash.com/photo-1613858749733-3a3e456e3d9e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 url: "https://github.com/openvoid-dev/abyss-core"
 tags: ["PHP Framework"]
 date: "2024"
