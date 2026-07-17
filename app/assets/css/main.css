@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "../../../content/**/*";
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+}
+
+:root {
+  --ui-container: var(--container-8xl);
+
+  --ui-bg: #000000;
+  --ui-bg-muted: var(--ui-color-stone-900);
+  --ui-bg-elevated: var(--ui-color-stone-800);
+  --ui-bg-accented: var(--ui-color-stone-700);
+  --ui-bg-inverted: white;
+
+  ::selection {
+    color: #282a30;
+    background-color: #c8c8c8;
+  }
+}
+
+.dark {
+  ::selection {
+    color: #ffffff;
+    background-color: #474747;
+  }
+}
