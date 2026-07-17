@@ -24,7 +24,7 @@ useSeoMeta({
     <LandingHero :page />
     <UPageSection
       :ui="{
-        container: 'pt-0! lg:grid lg:grid-cols-2 lg:gap-8 max-w-6xl mx-auto'
+        container: 'pt-0! lg:grid lg:grid-cols-2 lg:gap-8 max-w-6xl mx-auto mt-40'
       }"
     >
       <LandingAbout :page />
