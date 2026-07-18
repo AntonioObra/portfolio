@@ -28,4 +28,4 @@ The bigger issue, though, was the random crashes: the lock screen crashing, the 
 
 All in all, it was a great experience, but in the end I just wanted a simple, stable desktop environment that lets me get work done without the fear of crashes and constantly fixing little issues.
 
-So I finally made the switch to macOS and it's bliss. If you're curious how I set my Mac up for programming, I wrote about that [here](/blog/setting-up-my-mac-for-programming).
+So I finally made the switch to macOS and it's bliss. If you're curious how I set my Mac up for programming, I wrote about that [here](/blog).
