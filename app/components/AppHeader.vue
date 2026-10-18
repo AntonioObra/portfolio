@@ -1,22 +1,13 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
-
-defineProps<{
-  links: NavigationMenuItem[]
-}>()
+defineProps<{ links?: NavigationMenuItem[] }>()
+const route = useRoute()
 </script>
 
 <template>
-  <div class="fixed top-2 sm:top-4 mx-auto left-1/2 transform -translate-x-1/2 z-10">
-    <UNavigationMenu
-      :items="links"
-      variant="link"
-      color="neutral"
-      class="bg-black/50 backdrop-blur-3xl rounded-full px-2 sm:px-4 border border-muted/50 shadow-lg shadow-neutral-950/5"
-      :ui="{
-        link: 'px-2 py-1',
-        linkLeadingIcon: 'hidden'
-      }"
-    />
-  </div>
+  <header class="site-header" :class="{ 'header-dark': route.path === '/' }">
+    <NuxtLink to="/" class="wordmark" aria-label="Antonio Obradović — home">ao<span>®</span></NuxtLink>
+    <nav aria-label="Main navigation"><NuxtLink to="/projects">Work <sup>02</sup></NuxtLink><NuxtLink to="/#about">About</NuxtLink><NuxtLink to="/blog">Journal</NuxtLink></nav>
+    <a class="header-contact" href="mailto:antonio@obradovic.dev">Let’s talk <span>↗</span></a>
+  </header>
 </template>

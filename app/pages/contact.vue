@@ -1,53 +1,13 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData("index", () => {
-  return queryCollection("index").first();
-});
-if (!page.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Page not found",
-    fatal: true,
-  });
-}
-
-const { global } = useAppConfig();
-
-const title = page.value?.seo?.title || page.value?.title;
-const description = page.value?.seo?.description || page.value?.description;
-
-useSeoMeta({
-  title,
-  ogTitle: title,
-  description,
-  ogDescription: description,
-});
-
-defineOgImage("Portfolio", { title, description });
+useSeoMeta({ title: 'Start a conversation', description: 'Get in touch with Antonio Obradović, a developer and independent builder in Zagreb.' })
+const root = ref<HTMLElement>()
+useEditorialMotion(root)
 </script>
 
 <template>
-  <UPage v-if="page">
-    <UPageHero
-      title="Contact Me"
-      description="Feel free to reach out via email."
-      :ui="{
-        container: '!pb-10 mt-40'
-      }"
-    />
-    <UPageSection
-      :ui="{
-        container: 'pt-0! mt-0 flex items-center justify-center',
-      }"
-    >
-      <ULink
-        to="mailto:antonio@obradovic.dev"
-        class="text-primary text-lg flex items-center gap-2"
-      >
-        <UButton variant="soft">
-          <UIcon name="i-lucide-mail" class="size-5" />
-          antonio@obradovic.dev
-        </UButton>
-      </ULink>
-    </UPageSection>
-  </UPage>
+  <div ref="root" class="archive-page contact-page">
+    <header class="archive-heading"><div class="micro archive-eyebrow"><span>04 / Start a conversation</span><span>Zagreb, Croatia</span></div><h1>Good things<br><em>start here.</em></h1><div class="archive-intro"><span class="archive-symbol" aria-hidden="true">↙</span><p>A project, an idea, or an interesting question.<br>My inbox is open.</p></div></header>
+    <a href="mailto:antonio@obradovic.dev" class="contact-destination editorial-row" data-cursor="Say hi"><span class="micro">Email</span><span>antonio@obradovic.dev</span><span aria-hidden="true">↗</span></a>
+    <div class="archive-end micro"><a href="https://github.com/AntonioObra" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://x.com/obradovicdotdev" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a></div>
+  </div>
 </template>

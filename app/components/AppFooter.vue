@@ -1,24 +1,3 @@
-<script setup lang="ts">
-const { footer } = useAppConfig()
-</script>
-
 <template>
-  <UFooter
-    class="z-10 bg-default"
-    :ui="{ left: 'text-muted text-xs' }"
-  >
-    <template #left>
-      {{ footer.credits }}
-    </template>
-
-    <template #right>
-      <template v-if="footer?.links">
-        <UButton
-          v-for="(link, index) of footer?.links"
-          :key="index"
-          v-bind="{ size: 'xs', color: 'neutral', variant: 'ghost', ...link }"
-        />
-      </template>
-    </template>
-  </UFooter>
+  <footer class="site-footer micro"><span>© {{ new Date().getFullYear() }} Antonio Obradović</span><span>Made with intention, in Zagreb.</span><div><a href="https://github.com/AntonioObra" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://x.com/obradovicdotdev" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="#main-content">Back to top ↑</a></div></footer>
 </template>

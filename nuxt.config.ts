@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // Content preparation writes database dumps into buildDir. Keep verification
+  // commands from replacing the files used by a running development server.
+  buildDir: process.env.NUXT_VERIFY === '1' ? '.nuxt-verify' : '.nuxt',
+  app: { pageTransition: { name: 'page', mode: 'out-in' } },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/image',

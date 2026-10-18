@@ -2,7 +2,7 @@
 const colorMode = useColorMode();
 
 const color = computed(() =>
-  colorMode.value === "dark" ? "#000000" : "white",
+  colorMode.value === "dark" ? "#22262D" : "white",
 );
 
 useHead({
@@ -52,10 +52,10 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
 
 <template>
   <UApp>
+    <NuxtLoadingIndicator color="#9fa894" :height="2" />
+    <AppIntro />
     <NuxtLayout>
-      <UMain class="relative">
-        <NuxtPage />
-      </UMain>
+      <NuxtPage />
     </NuxtLayout>
   </UApp>
 </template>
