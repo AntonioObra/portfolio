@@ -23,13 +23,17 @@ onMounted(async () => {
   if (disposed || !visible.value || !overlay.value) return
   const select = gsap.utils.selector(overlay.value)
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    timeline = gsap.timeline({ onComplete: finish }).to(overlay.value, { opacity: 0, duration: .3, delay: .15 })
+    // CSS supplies these starting poses in the first server-rendered paint.
+  // Animate forward only; do not reset already-visible elements during hydration.
+  timeline = gsap.timeline({ onComplete: finish }).to(overlay.value, { opacity: 0, duration: .3, delay: .15 })
     return
   }
+  // CSS supplies these starting poses in the first server-rendered paint.
+  // Animate forward only; do not reset already-visible elements during hydration.
   timeline = gsap.timeline({ onComplete: finish })
-    .fromTo(select('.intro-letter'), { yPercent: 115, rotate: 8 }, { yPercent: 0, rotate: 0, stagger: .1, duration: .9, ease: 'power4.out' }, .1)
-    .fromTo(select('.intro-caption'), { opacity: 0, y: 12 }, { opacity: 1, y: 0, stagger: .15, duration: .55 }, .35)
-    .fromTo(select('.intro-rule span'), { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: 'power2.inOut' }, .2)
+    .to(select('.intro-letter'), { y: 0, yPercent: 0, rotate: 0, stagger: .1, duration: .9, ease: 'power4.out' }, .1)
+    .to(select('.intro-caption'), { opacity: 1, y: 0, stagger: .15, duration: .55 }, .35)
+    .to(select('.intro-rule span'), { scaleX: 1, duration: 1.2, ease: 'power2.inOut' }, .2)
     .to(select('.intro-word'), { yPercent: -25, opacity: 0, duration: .5, ease: 'power3.in' }, 1.5)
     .to(select('.intro-caption, .intro-rule, .intro-skip'), { opacity: 0, duration: .3 }, 1.55)
     .to(select('.intro-panel'), { yPercent: -100, duration: .95, stagger: .12, ease: 'power4.inOut' }, 1.65)

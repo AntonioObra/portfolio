@@ -141,3 +141,9 @@ h2 em { font-weight: 400; }
 @keyframes intro-safety-exit { to { visibility: hidden; pointer-events: none; } }
 @media(max-width:540px) { .intro-top, .intro-bottom { font-size: 6px; left: 6%; right: 6%; }.intro-top > span:last-child { max-width: 110px; text-align: right; }.intro-bottom > span:last-child { display: none; }.intro-word { font-size: 60vw; }.intro-skip { right: 6%; bottom: 38px; } }
 @media(prefers-reduced-motion:reduce) { .site-intro { animation: none !important; } }
+
+/* Match the first paint to the intro timeline's starting pose. */
+.site-intro .intro-letter { transform: translateY(115%) rotate(8deg); }
+.site-intro .intro-caption { opacity: 0; transform: translateY(12px); }
+.site-intro .intro-rule span { transform: scaleX(0); }
+@media(prefers-reduced-motion:reduce) { .site-intro .intro-letter, .site-intro .intro-caption { transform: none; }.site-intro .intro-caption { opacity: 1; }.site-intro .intro-rule span { transform: scaleX(1); } }
