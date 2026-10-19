@@ -82,7 +82,12 @@ onMounted(async () => {
       });
     });
     gsap.utils.toArray<HTMLElement>(".editorial-row").forEach((el) => {
-      gsap.from(el, { x: 22, duration: .9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 94%", once: true } });
+      gsap.from(el, {
+        x: 22,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 94%", once: true },
+      });
     });
     gsap.to(".about-star", {
       rotation: 150,
@@ -147,7 +152,9 @@ onBeforeUnmount(() => {
       <MetalFlower />
       <div class="hero-composition">
         <div class="hero-title hero-reveal">
-          <p class="micro hero-kicker">Independent developer & builder / Zagreb, Croatia</p>
+          <p class="micro hero-kicker">
+            Independent developer & builder / Zagreb, Croatia
+          </p>
           <h1 id="hero-title">
             <span class="name-line"><span>Antonio</span></span
             ><span class="name-line name-surname"
@@ -160,7 +167,10 @@ onBeforeUnmount(() => {
         <a href="#work" class="explore micro"
           ><span class="circle-arrow">↓</span> Scroll to discover</a
         >
-        <p>Thoughtful software.<br />Built with intention.</p><span class="micro hero-edition">An ongoing exploration<br>Code. Form. Function.</span>
+        <p>Thoughtful software.<br />Built with intention.</p>
+        <span class="micro hero-edition"
+          >An ongoing exploration<br />Code. Form. Function.</span
+        >
       </div>
     </section>
 

@@ -48,13 +48,13 @@ const formatDate = (dateString: string) => {
       <UPage v-if="page">
         <ULink
           to="/blog"
-          class="text-sm flex items-center gap-1"
+          class="text-base flex items-center gap-1"
         >
           <UIcon name="lucide:chevron-left" />
           Blog
         </ULink>
         <div class="flex flex-col gap-3 mt-8">
-          <div class="flex text-xs text-muted items-center justify-center gap-2">
+          <div class="flex text-sm text-muted items-center justify-center gap-2">
             <span v-if="page.date">
               {{ formatDate(page.date) }}
             </span>
@@ -87,7 +87,7 @@ const formatDate = (dateString: string) => {
             :value="page"
           />
 
-          <div class="flex items-center justify-end gap-2 text-sm text-muted">
+          <div class="flex items-center justify-end gap-2 text-base text-muted">
             <UButton
               size="sm"
               variant="link"
