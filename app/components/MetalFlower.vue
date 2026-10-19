@@ -13,7 +13,7 @@ let disposed = false;
 onMounted(async () => {
   // Let hydration and the first layout finish before creating the WebGL surface.
   await nextTick();
-  await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
+  await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
   if (disposed || !host.value) return;
   const el = host.value;
   let renderer: THREE.WebGLRenderer;
@@ -85,9 +85,19 @@ onMounted(async () => {
     camera.updateProjectionMatrix();
     renderer.render(scene, camera);
   };
-  const restore = () => { if (!disposed) resize(); };
-  const contextLost = (event: Event) => { event.preventDefault(); ready.value = false; };
-  const contextRestored = () => { if (!disposed) { resize(); ready.value = true; } };
+  const restore = () => {
+    if (!disposed) resize();
+  };
+  const contextLost = (event: Event) => {
+    event.preventDefault();
+    ready.value = false;
+  };
+  const contextRestored = () => {
+    if (!disposed) {
+      resize();
+      ready.value = true;
+    }
+  };
   renderer.domElement.addEventListener("webglcontextlost", contextLost);
   renderer.domElement.addEventListener("webglcontextrestored", contextRestored);
   window.addEventListener("pageshow", restore);
@@ -153,12 +163,18 @@ onMounted(async () => {
     pmrem.dispose();
     window.removeEventListener("pageshow", restore);
     renderer.domElement.removeEventListener("webglcontextlost", contextLost);
-    renderer.domElement.removeEventListener("webglcontextrestored", contextRestored);
+    renderer.domElement.removeEventListener(
+      "webglcontextrestored",
+      contextRestored,
+    );
     renderer.dispose();
     renderer.domElement.remove();
   };
 });
-onBeforeUnmount(() => { disposed = true; cleanup(); });
+onBeforeUnmount(() => {
+  disposed = true;
+  cleanup();
+});
 </script>
 
 <template>
@@ -166,20 +182,17 @@ onBeforeUnmount(() => { disposed = true; cleanup(); });
     <div
       ref="host"
       :class="ready ? 'opacity-100' : 'opacity-0'"
-      class="absolute inset-y-0 left-[25%] -right-[8%] transition-opacity duration-[800ms] [&>canvas]:block [&>canvas]:h-full [&>canvas]:w-full max-[800px]:left-[15%] max-[800px]:-right-[20%] max-[540px]:-top-[12%] max-[540px]:bottom-[22%] max-[540px]:-left-[15%] max-[540px]:-right-[35%]" data-motion="lily-scene"
+      class="absolute inset-y-0 left-[25%] -right-[8%] transition-opacity duration-[800ms] [&>canvas]:block [&>canvas]:h-full [&>canvas]:w-full max-[800px]:left-[15%] max-[800px]:-right-[20%] max-[540px]:-top-[12%] max-[540px]:bottom-[22%] max-[540px]:-left-[15%] max-[540px]:-right-[35%]"
+      data-motion="lily-scene"
       role="img"
       aria-label="A vivid red spider lily with curling petals and long red stamens, slowly turning in the hero"
     />
-    <div v-if="failed" class="absolute top-[45%] right-[5%] left-1/2 text-center text-[#939a90] text-sm font-[450] tracking-[.11em] uppercase leading-[1.7]" role="status">
+    <div
+      v-if="failed"
+      class="absolute top-[45%] right-[5%] left-1/2 text-center text-[#939a90] text-sm font-[450] tracking-[.11em] uppercase leading-[1.7]"
+      role="status"
+    >
       The botanical study requires WebGL.
     </div>
-    <button
-      v-if="ready"
-      class="pointer-events-auto absolute right-[5%] bottom-32 z-[3] min-h-11 cursor-pointer py-2.5 tracking-[.1em] text-[#a1a69c] max-[800px]:bottom-[120px] max-[540px]:right-[6%] max-[540px]:bottom-[108px] max-[540px]:text-xs text-sm font-[450] tracking-[.11em] uppercase leading-[1.7]"
-      :aria-pressed="paused"
-      @click="paused = !paused"
-    >
-      {{ paused ? "↻ Resume sculpture" : "Ⅱ Pause sculpture" }}
-    </button>
   </div>
 </template>
