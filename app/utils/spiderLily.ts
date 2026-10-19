@@ -6,10 +6,10 @@ import * as THREE from 'three'
  */
 export function createSpiderLily() {
   const group = new THREE.Group()
-  const silver = new THREE.MeshStandardMaterial({ color: 0xb7bcb7, metalness: .94, roughness: .24, side: THREE.DoubleSide })
-  const filamentMaterial = new THREE.MeshStandardMaterial({ color: 0xd5d8cf, metalness: .85, roughness: .28 })
-  const stemMaterial = new THREE.MeshStandardMaterial({ color: 0x666e65, metalness: .85, roughness: .32 })
-  const antherMaterial = new THREE.MeshStandardMaterial({ color: 0xe2dcc8, metalness: .9, roughness: .22 })
+  const petalMaterial = new THREE.MeshStandardMaterial({ color: 0xd50922, metalness: .35, roughness: .3, side: THREE.DoubleSide })
+  const filamentMaterial = new THREE.MeshStandardMaterial({ color: 0xf01830, metalness: .3, roughness: .32 })
+  const stemMaterial = new THREE.MeshStandardMaterial({ color: 0x860a1d, metalness: .35, roughness: .36 })
+  const antherMaterial = new THREE.MeshStandardMaterial({ color: 0xff243b, metalness: .4, roughness: .28 })
   const rows = 32
   const cols = 8
   const petalGeometry = new THREE.BufferGeometry()
@@ -80,7 +80,7 @@ export function createSpiderLily() {
       const pivot = new THREE.Group()
       pivot.rotation.order = 'YXZ'
       const azimuth = petal / 6 * Math.PI * 2
-      const mesh = new THREE.Mesh(petalGeometry, silver)
+      const mesh = new THREE.Mesh(petalGeometry, petalMaterial)
       mesh.position.y = .008
       pivot.add(mesh)
       throat.add(pivot)
@@ -126,7 +126,7 @@ export function createSpiderLily() {
   setBloom(1)
   const dispose = () => {
     for (const geometry of [petalGeometry, filamentGeometry, antherGeometry, pedicelGeometry, stemGeometry]) geometry.dispose()
-    for (const material of [silver, filamentMaterial, stemMaterial, antherMaterial]) material.dispose()
+    for (const material of [petalMaterial, filamentMaterial, stemMaterial, antherMaterial]) material.dispose()
   }
   return { group, setBloom, dispose }
 }
