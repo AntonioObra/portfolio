@@ -66,7 +66,7 @@ onMounted(async () => {
   let elapsed = 0;
   let lastBloom = bloom.value;
   const pointer = new THREE.Vector2();
-  const hero = el.closest(".void-hero") as HTMLElement | null;
+  const hero = el.closest("[data-motion=void-hero]") as HTMLElement | null;
   const move = (event: PointerEvent) => {
     if (!hero || event.pointerType !== "mouse") return;
     const rect = hero.getBoundingClientRect();
@@ -161,19 +161,20 @@ onBeforeUnmount(() => { disposed = true; cleanup(); });
 </script>
 
 <template>
-  <div class="flower-wrap spider-lily-wrap" :class="{ 'lily-ready': ready }">
+  <div class="pointer-events-none absolute inset-0 z-0 h-full w-full">
     <div
       ref="host"
-      class="lily-scene lily-native"
+      :class="ready ? 'opacity-100' : 'opacity-0'"
+      class="absolute inset-y-0 left-[25%] -right-[8%] transition-opacity duration-[800ms] [&>canvas]:block [&>canvas]:h-full [&>canvas]:w-full max-[800px]:left-[15%] max-[800px]:-right-[20%] max-[540px]:-top-[12%] max-[540px]:bottom-[22%] max-[540px]:-left-[15%] max-[540px]:-right-[35%]" data-motion="lily-scene"
       role="img"
       aria-label="A silver spider lily with curling petals and long metallic stamens, slowly turning in the hero"
     />
-    <div v-if="failed" class="lily-loading micro" role="status">
+    <div v-if="failed" class="absolute top-[45%] right-[5%] left-1/2 text-center text-[#939a90] text-sm font-[450] tracking-[.11em] uppercase leading-[1.7]" role="status">
       The botanical study requires WebGL.
     </div>
     <button
       v-if="ready"
-      class="lily-pause micro"
+      class="pointer-events-auto absolute right-[5%] bottom-32 z-[3] min-h-11 cursor-pointer py-2.5 tracking-[.1em] text-[#a1a69c] max-[800px]:bottom-[120px] max-[540px]:right-[6%] max-[540px]:bottom-[108px] max-[540px]:text-xs text-sm font-[450] tracking-[.11em] uppercase leading-[1.7]"
       :aria-pressed="paused"
       @click="paused = !paused"
     >

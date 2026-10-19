@@ -11,8 +11,8 @@ export function useEditorialMotion(root: Ref<HTMLElement | undefined>) {
     const media = gsap.matchMedia()
     media.add('(prefers-reduced-motion: no-preference)', () => {
       const context = gsap.context(() => {
-        gsap.from('.archive-heading h1', { y: 55, rotate: -2, duration: 1, ease: 'power3.out' })
-        gsap.utils.toArray<HTMLElement>('.editorial-row').forEach(row => {
+        gsap.from('[data-motion=archive-heading] h1', { y: 55, rotate: -2, duration: 1, ease: 'power3.out' })
+        gsap.utils.toArray<HTMLElement>('[data-editorial]').forEach(row => {
           gsap.from(row, { y: 28, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: row, start: 'top 94%', once: true } })
         })
       }, root.value)

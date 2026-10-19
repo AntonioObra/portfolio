@@ -40,7 +40,7 @@ onMounted(async () => {
     }
     const interactive = target?.closest('a, button, [data-cursor]')
     label.value = interactive?.getAttribute('data-cursor') || (interactive?.matches('a') ? '↗' : '')
-    ring.classList.toggle('cursor-active', !!interactive)
+    ring.toggleAttribute('data-active', !!interactive)
   }
   const tick = (_time: number, delta: number) => {
     if (!visible) return
@@ -78,7 +78,7 @@ onBeforeUnmount(() => { disposed = true; cleanup() })
 
 <template>
   <Teleport to="body">
-    <div ref="dot" class="cursor-dot" aria-hidden="true"><span /></div>
-    <div ref="follower" class="custom-cursor" aria-hidden="true"><span class="cursor-ring"><span>{{ label }}</span></span></div>
+    <div ref="dot" class="pointer-events-none fixed top-0 left-0 z-[11000] hidden size-0 opacity-0 mix-blend-difference [@media(hover:hover)_and_(pointer:fine)_and_(prefers-reduced-motion:no-preference)]:block [&>span]:absolute [&>span]:size-[7px] [&>span]:-translate-x-1/2 [&>span]:-translate-y-1/2 [&>span]:rounded-full [&>span]:bg-white" aria-hidden="true"><span /></div>
+    <div ref="follower" class="group/cursor pointer-events-none fixed top-0 left-0 z-[11000] hidden size-0 opacity-0 mix-blend-difference [@media(hover:hover)_and_(pointer:fine)_and_(prefers-reduced-motion:no-preference)]:block" aria-hidden="true"><span class="absolute flex size-[50px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 text-white transition-[width,height,background,border-color] duration-250 group-data-[active]/cursor:size-[94px] group-data-[active]/cursor:border-white group-data-[active]/cursor:bg-white group-data-[active]/cursor:text-black [&>span]:font-sans [&>span]:text-[13px] [&>span]:opacity-0 [&>span]:transition-opacity [&>span]:duration-150 group-data-[active]/cursor:[&>span]:opacity-100"><span>{{ label }}</span></span></div>
   </Teleport>
 </template>
