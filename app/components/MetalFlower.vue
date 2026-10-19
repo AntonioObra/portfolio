@@ -33,9 +33,10 @@ onMounted(async () => {
   renderer.toneMappingExposure = 1.3;
   el.appendChild(renderer.domElement);
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(33, 1, 0.1, 50);
-  camera.position.set(0, 0.65, 5.5);
-  camera.lookAt(0, -0.1, 0);
+  const camera = new THREE.PerspectiveCamera(24, 1, 0.1, 50);
+  camera.position.set(0, 1.4, 5.5);
+  // Frame the bloom rather than the full stem, with room for its turning stamens.
+  camera.lookAt(0, 0.65, 0);
   const pmrem = new THREE.PMREMGenerator(renderer);
   const room = new RoomEnvironment();
   const environment = pmrem.fromScene(room, 0.025);
@@ -167,7 +168,7 @@ onBeforeUnmount(() => { disposed = true; cleanup(); });
       :class="ready ? 'opacity-100' : 'opacity-0'"
       class="absolute inset-y-0 left-[25%] -right-[8%] transition-opacity duration-[800ms] [&>canvas]:block [&>canvas]:h-full [&>canvas]:w-full max-[800px]:left-[15%] max-[800px]:-right-[20%] max-[540px]:-top-[12%] max-[540px]:bottom-[22%] max-[540px]:-left-[15%] max-[540px]:-right-[35%]" data-motion="lily-scene"
       role="img"
-      aria-label="A silver spider lily with curling petals and long metallic stamens, slowly turning in the hero"
+      aria-label="A vivid red spider lily with curling petals and long red stamens, slowly turning in the hero"
     />
     <div v-if="failed" class="absolute top-[45%] right-[5%] left-1/2 text-center text-[#939a90] text-sm font-[450] tracking-[.11em] uppercase leading-[1.7]" role="status">
       The botanical study requires WebGL.
