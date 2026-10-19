@@ -1,79 +1,14 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('blog-page', () => {
-  return queryCollection('pages').path('/blog').first()
-})
-if (!page.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'Page not found',
-    fatal: true
-  })
-}
-const { data: posts } = await useAsyncData('blogs', () =>
-  queryCollection('blog').order('date', 'DESC').all()
-)
-if (!posts.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'blogs posts not found',
-    fatal: true
-  })
-}
-
-const title = page.value?.seo?.title || page.value?.title
-const description = page.value?.seo?.description || page.value?.description
-
-useSeoMeta({
-  title,
-  ogTitle: title,
-  description,
-  ogDescription: description
-})
-
-defineOgImage('Portfolio', { title, description })
+const { data: posts } = await useAsyncData('blogs', () => queryCollection('blog').order('date', 'DESC').all())
+useSeoMeta({ title: 'The journal', description: 'Engineering notes, experiments, and lessons from the process of building software.' })
+const root = ref<HTMLElement>()
+useEditorialMotion(root)
 </script>
 
 <template>
-  <UPage v-if="page" class="max-w-6xl mx-auto">
-    <UPageHero
-      :title="page.title"
-      :description="page.description"
-      :ui="{
-        title: 'mx-0! text-left',
-        description: 'mx-0! text-left'
-      }"
-    />
-    <UPageSection
-      :ui="{
-        container: 'pt-0!'
-      }"
-    >
-      <UBlogPosts orientation="vertical">
-        <Motion
-          v-for="(post, index) in posts"
-          :key="index"
-          :initial="{ opacity: 0, transform: 'translateY(10px)' }"
-          :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-          :transition="{ delay: 0.2 * index }"
-          :in-view-options="{ once: true }"
-        >
-          <UBlogPost
-            variant="naked"
-            orientation="horizontal"
-            :to="post.path"
-            v-bind="post"
-            :ui="{
-              root: 'md:grid md:grid-cols-2 group overflow-visible transition-all duration-300',
-              image:
-                'group-hover/blog-post:scale-105 rounded-lg shadow-lg border-4 border-muted ring-2 ring-default',
-              header:
-                index % 2 === 0
-                  ? 'sm:-rotate-1 overflow-visible'
-                  : 'sm:rotate-1 overflow-visible'
-            }"
-          />
-        </Motion>
-      </UBlogPosts>
-    </UPageSection>
-  </UPage>
+  <div ref="root">
+    <header class="pt-[50px] pb-[85px] [&>h1]:m-0 [&>h1]:font-serif [&>h1]:text-[clamp(80px,13vw,190px)] [&>h1]:leading-[.83] [&>h1]:font-normal [&>h1]:tracking-[-.055em] [&_em]:pl-[12%] max-[800px]:pb-[65px] max-[540px]:pt-[30px] max-[540px]:[&>h1]:text-[24vw]" data-motion="archive-heading"><div class="text-sm font-[450] tracking-[.11em] uppercase leading-[1.7] mb-[65px] flex justify-between text-[#777e6e] max-[540px]:mb-[50px] max-[540px]:gap-[18px] max-[540px]:text-[13px]"><span>03 / The journal</span><span>{{ String(posts?.length || 0).padStart(2, '0') }} entries</span></div><h1>Thinking<br><em>out loud.</em></h1><div class="mt-[50px] flex items-end justify-end gap-[65px] [&>p]:text-base [&>p]:leading-[1.9] [&>p]:text-[#6d7564] max-[540px]:mt-[35px] max-[540px]:gap-[30px] max-[540px]:[&>p]:text-sm"><span class="font-serif text-[70px] leading-none max-[540px]:text-[55px]" aria-hidden="true">↙</span><p>Notes on code, tools, and everything in between.<br>An ongoing record of figuring things out.</p></div></header>
+    <JournalIndex :posts="posts || []" />
+    <div class="mt-[70px] flex flex-wrap justify-between gap-[30px] border-t border-rule pt-[25px] text-[#6d7564] [&>a]:text-ink max-[540px]:mt-10 max-[540px]:text-xs text-sm font-[450] tracking-[.11em] uppercase leading-[1.7]"><span>Less noise. More perspective.</span><NuxtLink to="/projects">Explore the work ↗</NuxtLink></div>
+  </div>
 </template>

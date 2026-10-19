@@ -1,31 +1,58 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
-
 @source "../../../content/**/*";
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
-  --font-serif: 'Instrument Serif', serif;
-}
+  --font-sans: "Public Sans", "Helvetica Neue", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --color-paper: #eeede8;
+  --color-ink: #21231f;
+  --color-rule: #c9cbc1;
+  --animate-intro-safety: intro-safety-exit 0.01s 6s forwards;
 
-:root {
-  --ui-container: var(--container-8xl);
-
-  --ui-bg: #000000;
-  --ui-bg-muted: var(--ui-color-stone-900);
-  --ui-bg-elevated: var(--ui-color-stone-800);
-  --ui-bg-accented: var(--ui-color-stone-700);
-  --ui-bg-inverted: white;
-
-  ::selection {
-    color: #282a30;
-    background-color: #c8c8c8;
+  @keyframes intro-safety-exit {
+    to { visibility: hidden; pointer-events: none; }
   }
 }
 
-.dark {
-  ::selection {
-    color: #ffffff;
-    background-color: #474747;
+:root {
+  --ui-bg: var(--color-paper);
+  --ui-bg-muted: #e4e3dd;
+  --ui-bg-elevated: #e9e8e2;
+  --ui-text: var(--color-ink);
+  --ui-text-muted: #6e7069;
+  --ui-primary: #353a33;
+  --ui-border: var(--color-rule);
+  --ui-container: 80rem;
+  color-scheme: light;
+}
+
+@layer base {
+  html { @apply scroll-smooth scroll-pt-[30px]; }
+  body { @apply m-0 bg-paper font-sans text-ink antialiased; }
+  ::selection { @apply bg-[#b5b8aa] text-[#10120f]; }
+  a, button { @apply touch-manipulation; -webkit-tap-highlight-color: transparent; }
+  a { @apply no-underline; }
+  :focus-visible { @apply outline-2 outline-offset-[6px] outline-[#888e7d]; }
+}
+
+/* Nuxt owns these transient class names during route transitions. */
+.page-enter-active, .page-leave-active {
+  transition: opacity .25s ease, transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.page-enter-from { opacity: 0; transform: translateY(18px); }
+.page-leave-to { opacity: 0; transform: translateY(-12px); }
+
+/* The cursor controller toggles this document-wide state. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .cursor-enabled, .cursor-enabled * { cursor: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

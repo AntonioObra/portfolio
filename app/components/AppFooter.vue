@@ -1,24 +1,3 @@
-<script setup lang="ts">
-const { footer } = useAppConfig()
-</script>
-
 <template>
-  <UFooter
-    class="z-10 bg-default"
-    :ui="{ left: 'text-muted text-xs' }"
-  >
-    <template #left>
-      {{ footer.credits }}
-    </template>
-
-    <template #right>
-      <template v-if="footer?.links">
-        <UButton
-          v-for="(link, index) of footer?.links"
-          :key="index"
-          v-bind="{ size: 'xs', color: 'neutral', variant: 'ghost', ...link }"
-        />
-      </template>
-    </template>
-  </UFooter>
+  <footer class="flex items-center justify-between gap-[25px] bg-[#080909] px-[5%] py-7 text-[#969b90] [&>div]:flex [&>div]:gap-[25px] max-[800px]:[&>span:nth-child(2)]:hidden max-[540px]:flex-col max-[540px]:items-start max-[540px]:gap-4 max-[540px]:px-[6%] max-[540px]:py-[25px] max-[540px]:text-xs max-[540px]:[&>div]:flex-wrap max-[540px]:[&>div]:justify-start max-[540px]:[&>div]:gap-x-6 max-[540px]:[&>div]:gap-y-3.5 max-[540px]:[&_a]:py-1.5 text-sm font-[450] tracking-[.11em] uppercase leading-[1.7]"><span>© {{ new Date().getFullYear() }} Antonio Obradović</span><span>Made with intention, in Zagreb.</span><div><a href="https://github.com/AntonioObra" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://x.com/obradovicdotdev" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="#main-content">Back to top ↑</a></div></footer>
 </template>
